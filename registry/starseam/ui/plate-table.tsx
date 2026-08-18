@@ -62,7 +62,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
       data-slot="table-head"
       className={cn(
         "border-b border-[var(--ss-seam)] px-[calc(var(--ss-em)*0.75)] py-[calc(var(--ss-em)*0.6)]",
-        "text-left font-[family-name:var(--ss-mono)] text-[9px] font-medium uppercase",
+        "text-left font-[family-name:var(--ss-mono)] text-[10px] font-medium uppercase",
         "tracking-[var(--ss-track-label)] text-[var(--ss-text-3)]",
         className
       )}

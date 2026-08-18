@@ -106,7 +106,7 @@ function ModeSwitch({ className, labels, ...props }: ModeSwitchProps) {
           data-slot="mode-switch-item"
           className={cn(
             "flex items-center gap-[6px] px-[10px] py-[5px]",
-            "font-[family-name:var(--ss-mono)] text-[10px] uppercase tracking-[var(--ss-track-label)]",
+            "font-[family-name:var(--ss-mono)] text-[10.5px] uppercase tracking-[var(--ss-track-label)]",
             "text-[var(--ss-text-3)] hover:text-[var(--ss-text-2)]",
             "transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)]",
             "data-[state=on]:bg-[var(--ss-plate-2)] data-[state=on]:text-[var(--ss-text)]",

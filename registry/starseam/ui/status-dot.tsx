@@ -40,7 +40,7 @@ function StatusDot({ className, state = "nominal", label, ...props }: StatusDotP
         }}
       />
       {label ? (
-        <span className="font-[family-name:var(--ss-mono)] text-[10px] uppercase tracking-[var(--ss-track-label)]">
+        <span className="font-[family-name:var(--ss-mono)] text-[10.5px] uppercase tracking-[var(--ss-track-label)]">
           {label}
         </span>
       ) : null}

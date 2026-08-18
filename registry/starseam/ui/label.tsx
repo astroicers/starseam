@@ -21,7 +21,7 @@ function Label({ className, htmlFor, ...props }: LabelProps) {
       data-slot="label"
       {...(htmlFor ? { htmlFor } : {})}
       className={cn(
-        "font-[family-name:var(--ss-mono)] text-[9px] font-medium uppercase",
+        "font-[family-name:var(--ss-mono)] text-[10px] font-medium uppercase",
         "tracking-[var(--ss-track-label)] text-[var(--ss-text-3)]",
         htmlFor && "cursor-pointer",
         className

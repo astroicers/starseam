@@ -62,7 +62,7 @@ function DropdownMenuLabel({
     <DropdownMenuPrimitive.Label
       data-slot="dropdown-menu-label"
       className={cn(
-        "px-[9px] py-[6px] font-[family-name:var(--ss-mono)] text-[9px]",
+        "px-[9px] py-[6px] font-[family-name:var(--ss-mono)] text-[10px]",
         "font-medium uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)]",
         className
       )}

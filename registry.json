@@ -207,6 +207,21 @@
       ]
     },
     {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy button",
+      "description": "A quiet text button that puts a value on the clipboard. The confirmation is a rivet, never lapis.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "plate-button",
       "type": "registry:ui",
       "title": "Plate button",
