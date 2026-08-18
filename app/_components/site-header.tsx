@@ -36,14 +36,14 @@ export function SiteHeader({
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="py-1 font-[family-name:var(--ss-mono)] text-[10px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] hover:text-[var(--ss-text-2)]"
+              className="py-1 font-[family-name:var(--ss-mono)] text-[11px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] hover:text-[var(--ss-text-2)]"
             >
               {item.label}
             </a>
           ))}
           <a
             href="https://github.com/astroicers/starseam"
-            className="py-1 font-[family-name:var(--ss-mono)] text-[10px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] hover:text-[var(--ss-text-2)]"
+            className="py-1 font-[family-name:var(--ss-mono)] text-[11px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] hover:text-[var(--ss-text-2)]"
           >
             GitHub
           </a>
@@ -61,7 +61,7 @@ export function SiteHeader({
                   key={l.locale}
                   href={l.href}
                   aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-[6px] px-3 py-1 font-[family-name:var(--ss-mono)] text-[10px] uppercase tracking-[var(--ss-track-label)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] ${
+                  className={`flex items-center gap-[6px] px-3 py-1 font-[family-name:var(--ss-mono)] text-[11px] uppercase tracking-[var(--ss-track-label)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] ${
                     active
                       ? "text-[var(--ss-text)]"
                       : "text-[var(--ss-text-3)] hover:text-[var(--ss-text-2)]"

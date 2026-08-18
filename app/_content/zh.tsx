@@ -9,6 +9,7 @@ export const zh: Dictionary = {
   },
   header: {
     nav: [
+      { id: "palette", label: "配色" },
       { id: "surfaces", label: "板面" },
       { id: "instruments", label: "儀表" },
       { id: "controls", label: "控制項" },
@@ -34,7 +35,7 @@ export const zh: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "22" },
+    { label: "ITEMS", value: "23" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -59,6 +60,30 @@ export const zh: Dictionary = {
         body: "同心圈、方位線、掃描扇區——監控室裡的那台儀器。",
       },
     ],
+  },
+  palette: {
+    label: "PALETTE",
+    title: "配色",
+    intro:
+      "十四個 token,兩種材質:夜勤是漆下的光,日勤是紙上的顏料。色票隨當前模式渲染;兩組十六進位值都列在票上。命名沿用傳統色,且只在名實相符時使用。",
+    consoleLabel: "console",
+    reportLabel: "report",
+    roles: {
+      ground: "底。黒漆的地",
+      plate1: "板・第一階",
+      plate2: "板・第二階",
+      plate3: "板・最高階",
+      seam: "接縫髮絲線",
+      seamStrong: "接縫・加重",
+      rivet: "鉚釘;選取狀態",
+      rivetQuiet: "鉚釘・靜",
+      text: "本文",
+      text2: "次要文字",
+      text3: "儀表標籤",
+      live: "存活訊號與焦點,僅此而已",
+      warn: "需要注意",
+      crit: "現在就要處理",
+    },
   },
   surfaces: {
     label: "SURFACES",
@@ -168,6 +193,10 @@ export const zh: Dictionary = {
       checkbox: "納入子網域",
       checkboxLocked: "已鎖定的範圍",
       switch: "排程每日執行",
+    },
+    copy: {
+      note: "把值放上剪貼簿。確認訊息是一顆鉚釘加標籤替換——完成的動作是選取語彙,不是嚴重度。本頁每條安裝指令旁都有一顆。",
+      sample: "ssh soc@ops.example.gov.tw",
     },
   },
   overlays: {

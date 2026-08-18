@@ -8,6 +8,7 @@ import type { ReactNode } from "react";
 
 export type SectionId =
   | "readings"
+  | "palette"
   | "surfaces"
   | "instruments"
   | "controls"
@@ -36,6 +37,26 @@ export interface Dictionary {
   stats: { label: string; value: string; state?: "live" }[];
   readings: SectionHead & {
     cards: { en: string; title: string; body: string }[];
+  };
+  palette: SectionHead & {
+    consoleLabel: string;
+    reportLabel: string;
+    roles: {
+      ground: string;
+      plate1: string;
+      plate2: string;
+      plate3: string;
+      seam: string;
+      seamStrong: string;
+      rivet: string;
+      rivetQuiet: string;
+      text: string;
+      text2: string;
+      text3: string;
+      live: string;
+      warn: string;
+      crit: string;
+    };
   };
   surfaces: SectionHead & {
     plate: { note: string; flush: string; raised: string; float: string };
@@ -93,6 +114,7 @@ export interface Dictionary {
       checkboxLocked: string;
       switch: string;
     };
+    copy: { note: string; sample: string };
   };
   overlays: SectionHead & {
     dialog: {

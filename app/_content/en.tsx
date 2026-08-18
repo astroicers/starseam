@@ -9,6 +9,7 @@ export const en: Dictionary = {
   },
   header: {
     nav: [
+      { id: "palette", label: "Palette" },
       { id: "surfaces", label: "Surfaces" },
       { id: "instruments", label: "Instruments" },
       { id: "controls", label: "Controls" },
@@ -37,7 +38,7 @@ export const en: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "22" },
+    { label: "ITEMS", value: "23" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -62,6 +63,30 @@ export const en: Dictionary = {
         body: "Concentric rings, bearing lines, sweep sectors — the instrument in the monitoring room.",
       },
     ],
+  },
+  palette: {
+    label: "PALETTE",
+    title: "Palette",
+    intro:
+      "Fourteen tokens, two materials: console is light under lacquer, report is pigment on paper. Swatches render in the current mode; both hex values are printed on the chip. Names follow traditional colours, and only where the name still holds.",
+    consoleLabel: "console",
+    reportLabel: "report",
+    roles: {
+      ground: "The ground. Black lacquer",
+      plate1: "Plate, first cut",
+      plate2: "Plate, second cut",
+      plate3: "Plate, highest cut",
+      seam: "Hairline seam",
+      seamStrong: "Seam, strong",
+      rivet: "Rivets; selection",
+      rivetQuiet: "Rivet, quiet",
+      text: "Body text",
+      text2: "Secondary text",
+      text3: "Instrument labels",
+      live: "Liveness and focus, nothing else",
+      warn: "Needs attention",
+      crit: "Act now",
+    },
   },
   surfaces: {
     label: "SURFACES",
@@ -176,6 +201,10 @@ export const en: Dictionary = {
       checkbox: "Include subdomains",
       checkboxLocked: "Locked scope",
       switch: "Run daily",
+    },
+    copy: {
+      note: "Puts a value on the clipboard. The confirmation is a rivet and a label swap — an acknowledged action reads as selection, not severity. One sits beside every install command on this page.",
+      sample: "ssh soc@ops.example.gov.tw",
     },
   },
   overlays: {
