@@ -1,5 +1,5 @@
 import { MODE_SCRIPT } from "@/components/ui/mode-switch";
-import { mono, sansTC, sansJP } from "../fonts";
+import { mono, sansTC, sansJP, sansEN } from "../fonts";
 import "../globals.css";
 
 /**
@@ -18,7 +18,7 @@ export function LayoutShell({
         <script dangerouslySetInnerHTML={{ __html: MODE_SCRIPT }} />
       </head>
       <body
-        className={`${mono.variable} ${sansTC.variable} ${sansJP.variable} antialiased`}
+        className={`${mono.variable} ${sansTC.variable} ${sansJP.variable} ${sansEN.variable} antialiased`}
       >
         {children}
       </body>
