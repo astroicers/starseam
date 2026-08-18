@@ -33,6 +33,16 @@ import {
   DialogClose,
 } from "@/components/ui/plate-dialog";
 import {
+  Sheet,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetBody,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/plate-sheet";
+import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
@@ -266,6 +276,29 @@ export default function Home() {
               </DialogFooter>
             </DialogContent>
           </Dialog>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <PlateButton>Open sheet</PlateButton>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>掃描剖面詳情</SheetTitle>
+                <SheetDescription>Passive — DNS / CT only</SheetDescription>
+              </SheetHeader>
+              <SheetBody>
+                <p>
+                  被動剖面只查詢公開來源:DNS 紀錄與憑證透明度日誌,
+                  不對目標發出任何封包。
+                </p>
+                <div className="mt-[var(--ss-em)]">
+                  <SheetClose asChild>
+                    <PlateButton>關閉</PlateButton>
+                  </SheetClose>
+                </div>
+              </SheetBody>
+            </SheetContent>
+          </Sheet>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

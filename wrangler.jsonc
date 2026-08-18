@@ -1,0 +1,16 @@
+// Cloudflare Workers static-assets deployment (assets-only, no worker script).
+// Build first: npm run registry:build && npm run build
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "starseam",
+  "compatibility_date": "2026-08-19",
+  "assets": {
+    "directory": "./out"
+  },
+  "routes": [
+    {
+      "pattern": "starseam.astroicers.link",
+      "custom_domain": true
+    }
+  ]
+}

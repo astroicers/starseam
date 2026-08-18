@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
 
 jobs:
@@ -34,3 +34,34 @@ jobs:
 
       - name: Build site
         run: npm run build
+
+  # Deploys to Cloudflare Workers static assets. `npm run preview` is
+  # deliberately absent — it needs font binaries in .fonts/ that are not
+  # committed, and the preview SVGs it generates already are.
+  deploy:
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # public/r is gitignored; it must be generated before the site build
+      # or the exported out/r/ would be empty.
+      - name: Build registry
+        run: npm run registry:build
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

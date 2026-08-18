@@ -3,7 +3,7 @@
 `starseam` 的目標是 **WCAG 2.2 AA**。這份文件記錄實際量到的數字、方法,以及**記錄在案的例外**。
 數字是算出來的,不是宣稱的——重算方式見文末。
 
-最後稽核:v0.1.0
+最後稽核:v0.2.0(2026-08-19,含真實瀏覽器實測,方法見「真實瀏覽器實測」一節)
 
 ---
 
@@ -43,6 +43,10 @@ v0.1.0 修正前有五組不合格,其中 `text-3` 兩個模式都失敗——�
 
 **`word-break: auto-phrase`、`text-spacing-trim`、`text-autospace` 目前支援度不一。**
 三者皆為漸進增強,不支援時退回瀏覽器預設斷行,無功能損失。
+Chromium 151 實測(2026-08-19):三者皆支援且實際生效——`getComputedStyle` 回報
+`lang="ja"` 節點 `word-break: auto-phrase`、`zh-Hant` 根節點 `text-spacing-trim: trim-start`
+與 `text-autospace: normal`;標題 `text-wrap: balance`、段落 `text-wrap: pretty` 亦生效。
+Firefox 與 Safari 的支援狀態未實測,仍視為漸進增強。
 
 ---
 
@@ -56,11 +60,34 @@ v0.1.0 修正前有五組不合格,其中 `text-3` 兩個模式都失敗——�
 
 ---
 
+## 真實瀏覽器實測
+
+v0.2.0 起,以 Playwright 驅動 Chromium 151 對匯出後的靜態站實測(2026-08-19):
+
+- **200% 縮放**(等效 640px viewport):`scrollWidth` = `clientWidth` = 640,無橫向溢出。
+- **320px 回流**(WCAG 1.4.10):`scrollWidth` = `clientWidth` = 320,無橫向捲軸、無內容互蓋。
+- **`prefers-reduced-motion: reduce`**:dialog 與 sheet 的進出動畫時長被壓至
+  `0.01ms`(等同即時);crit 脈動由 `1.6s infinite` 變為 `0.01ms` 且只跑一次。
+  正常模式下 crit 脈動為全站唯一 `infinite` 動畫,與 DECISIONS 08 相符。
+- **console 錯誤**:兩種模式載入與互動全程零錯誤。
+
+---
+
 ## 鍵盤與焦點
 
 焦點環為 `1px solid var(--ss-live)` 搭配 `2px` offset,使用 `:focus-visible`,
 在兩種模式下對底面皆達 3:1 以上。焦點順序即 DOM 順序;`lames` 的視覺交疊
 以 `margin-top` 負值達成,**不改變 DOM 順序**,因此交疊不會讓焦點跳來跳去。
+
+v0.2.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一輪,結果相同):
+
+- **dialog / sheet**:Enter 開啟、初始焦點落在浮層內、Tab 循環不逃出(焦點陷阱)、
+  Esc 關閉、關閉後焦點回到觸發按鈕。
+- **dropdown / select**:Enter 開啟、方向鍵在項目間移動、Esc 關閉、焦點回到觸發元素。
+- **tabs**:方向鍵移動並即時啟用、`Home`/`End` 跳至首末、方向鍵在兩端循環、
+  Tab 離開 tablist(roving tabindex,整個 tablist 只佔一個 Tab 停留點)。
+- **Tab 順序**:整頁 18 個可聚焦元素,實走順序與 DOM 順序一致;
+  無任何正值 `tabindex`;`lames` 交疊區內無可聚焦元素,不構成跳躍點。
 
 ---
 
@@ -68,10 +95,12 @@ v0.1.0 修正前有五組不合格,其中 `text-3` 兩個模式都失敗——�
 
 誠實列出來,不假裝做過:
 
-- **未經螢幕報讀器實測**(NVDA / VoiceOver / TalkBack)
-- **未做 200% 縮放與 320px 回流測試**
-- **未涵蓋表單控制項**——因為 v0.1.0 還沒有表單元件。補上時本文件必須同步更新
+- **未經螢幕報讀器實測**(NVDA / VoiceOver / TalkBack)。
+  表單控制項(input / textarea / checkbox / switch / select / field)的鍵盤操作與
+  對比度已實測涵蓋,但 `field` 的錯誤訊息經 `aria-describedby` 的實際播報行為
+  仍待螢幕報讀器驗證
 - 未做動態內容的即時區域(live region)規範
+- CJK 排版屬性僅在 Chromium 實測;Firefox / Safari 未驗證
 
 ---
 
