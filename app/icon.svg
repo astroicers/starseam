@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="starseam">
+  <title>starseam</title>
+  <desc>Plan of a star-riveted helmet: plates radiating from a central aperture, rivets along every seam. Reads equally as a star chart and a radar scope.</desc>
+  <style>
+    /* report (paper) palette by default; console (lacquer) under a dark scheme.
+       Same geometry as public/mark-small-{console,report}.svg. */
+    .seam { stroke: #C9C9CE; }
+    .rivet { fill: #9AA0AA; }
+    .rivet-quiet { fill: #5E646E; }
+    .ground { fill: #EDEDEF; }
+    .live { stroke: #21509E; }
+    .live-core { fill: #21509E; }
+    @media (prefers-color-scheme: dark) {
+      .seam { stroke: #2C2C33; }
+      .rivet { fill: #8B939F; }
+      .rivet-quiet { fill: #5A5F69; }
+      .ground { fill: #0A0A0C; }
+      .live { stroke: #4F86D6; }
+      .live-core { fill: #4F86D6; }
+    }
+  </style>
+  <circle cx="32.0" cy="32.0" r="28.80" fill="none" class="seam" stroke-width="1.4"/>
+  <line x1="32.00" y1="26.08" x2="32.00" y2="3.20" class="seam" stroke-width="1.05"/>
+  <circle cx="32.00" cy="10.06" r="1.09" class="rivet"/>
+  <line x1="36.19" y1="27.81" x2="52.36" y2="11.64" class="seam" stroke-width="1.05"/>
+  <circle cx="47.51" cy="16.49" r="0.61" class="rivet-quiet"/>
+  <line x1="37.92" y1="32.00" x2="60.80" y2="32.00" class="seam" stroke-width="1.05"/>
+  <circle cx="53.94" cy="32.00" r="1.09" class="rivet"/>
+  <line x1="36.19" y1="36.19" x2="52.36" y2="52.36" class="seam" stroke-width="1.05"/>
+  <circle cx="47.51" cy="47.51" r="0.61" class="rivet-quiet"/>
+  <line x1="32.00" y1="37.92" x2="32.00" y2="60.80" class="seam" stroke-width="1.05"/>
+  <circle cx="32.00" cy="53.94" r="1.09" class="rivet"/>
+  <line x1="27.81" y1="36.19" x2="11.64" y2="52.36" class="seam" stroke-width="1.05"/>
+  <circle cx="16.49" cy="47.51" r="0.61" class="rivet-quiet"/>
+  <line x1="26.08" y1="32.00" x2="3.20" y2="32.00" class="seam" stroke-width="1.05"/>
+  <circle cx="10.06" cy="32.00" r="1.09" class="rivet"/>
+  <line x1="27.81" y1="27.81" x2="11.64" y2="11.64" class="seam" stroke-width="1.05"/>
+  <circle cx="16.49" cy="16.49" r="0.61" class="rivet-quiet"/>
+  <circle cx="32.0" cy="32.0" r="5.92" class="ground live" stroke-width="1.68"/>
+  <circle cx="32.0" cy="32.0" r="2.25" class="live-core"/>
+</svg>

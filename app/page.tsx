@@ -51,6 +51,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/plate-dropdown-menu";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/plate-tabs";
+import { version } from "../package.json";
 import {
   Table,
   TableHeader,
@@ -199,7 +200,7 @@ export default function Home() {
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <PlateButton variant="live">Get started</PlateButton>
           <PlateButton>Read decisions</PlateButton>
-          <CodeTag>v0.1.0</CodeTag>
+          <CodeTag>v{version}</CodeTag>
           <CodeTag>MIT</CodeTag>
           <StatusDot state="crit" label="critical" />
         </div>
