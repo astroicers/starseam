@@ -35,7 +35,7 @@ export const zh: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "23" },
+    { label: "ITEMS", value: "49" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -111,6 +111,16 @@ export const zh: Dictionary = {
       note: "同一片板上的劃線,純裝飾髮絲線;分組資訊由標題結構承載,不依賴這條線。",
       rows: ["分節之間", "清單項目之間", "導覽與內容的交界"],
     },
+    alert: {
+      note: "訊息板,左緣一道嚴重度色的加重接縫。顏色永遠不單獨傳達——標題自己把話說完。",
+      title: "排程已暫停",
+      body: "掃描佇列超過三件,新任務將延後至下一個時窗。",
+      critTitle: "憑證即將到期",
+      critBody: "vpn.example.gov.tw 的憑證將於 3 天後到期,請立即更換。",
+    },
+    skeleton: {
+      note: "佔位板。不閃爍、不脈動——系統唯一的循環動畫屬於 crit。安靜地等,是誠實的等。",
+    },
   },
   instruments: {
     label: "INSTRUMENTS",
@@ -152,6 +162,21 @@ export const zh: Dictionary = {
     },
     modeSwitch: {
       note: "三態:自動把選擇交還系統。文件元素是唯一真值——這顆與 header 那顆永遠同步。",
+    },
+    badge: {
+      note: "戳印式狀態籤:髮絲框、不填色。有色的徽章是對狀態的斷言,不是裝飾。",
+      rows: [
+        { state: "nominal", label: "queued" },
+        { state: "live", label: "scanning" },
+        { state: "warn", label: "degraded" },
+        { state: "crit", label: "breached" },
+      ],
+    },
+    kbd: { note: "鍵帽:一顆按鍵大小的凸起板,用填色與下緣加重接縫表達,沒有陰影。" },
+    avatar: { note: "身分板:方形、2px 圓角、髮絲接縫;備援字樣是儀表刻字,不是粉彩圓盤。" },
+    progress: {
+      note: "確定值的讀數,鉚釘鋼填色。沒有不定態掃描——無盡的循環只屬於 crit;長度未知就用文字說。",
+      label: "SCAN 64%",
     },
   },
   controls: {
@@ -198,6 +223,44 @@ export const zh: Dictionary = {
       note: "把值放上剪貼簿。確認訊息是一顆鉚釘加標籤替換——完成的動作是選取語彙,不是嚴重度。本頁每條安裝指令旁都有一顆。",
       sample: "ssh soc@ops.example.gov.tw",
     },
+    radio: {
+      note: "被選的選項中心釘進一顆鉚釘。選取是銀鼠,瑠璃只以焦點環出現。",
+      legend: "REPORT CADENCE",
+      options: [
+        { value: "daily", label: "每日" },
+        { value: "weekly", label: "每週" },
+        { value: "incident", label: "僅事件觸發" },
+      ],
+    },
+    slider: {
+      note: "沿著接縫拖動的設定值:軌是髮絲槽,已填範圍與滑鈕是鉚釘鋼。",
+      label: "SCAN INTENSITY",
+    },
+    toggle: {
+      note: "壓下狀態的按鈕。壓下是鉚釘加深填,不是藍。",
+      label: "RAW VIEW",
+    },
+    combobox: {
+      note: "帶過濾行的選單。選項是資料、值走隱藏 input 進表單——公開 API 不收函式。",
+      label: "ASSIGN ANALYST",
+      placeholder: "指派分析師…",
+      searchPlaceholder: "過濾…",
+      empty: "沒有符合的人。",
+      options: [
+        { value: "chen", label: "陳 O 安" },
+        { value: "lin", label: "林 O 蓉" },
+        { value: "wang", label: "王 O 廷" },
+        { value: "duty", label: "值班輪替" },
+      ],
+    },
+    datePicker: {
+      note: "浮層裡的月曆,日期落進隱藏 input——不需要回呼。被選的那天是一顆釘進去的鉚釘。",
+      label: "ENGAGEMENT START",
+    },
+    otp: {
+      note: "一板一碼。作用中的格子以瑠璃描邊——因為它持有焦點,那是藍唯一合法的家。游標是靜止的短棒:閃爍是循環,循環只屬於 crit。",
+      label: "VERIFICATION CODE",
+    },
   },
   overlays: {
     label: "OVERLAYS",
@@ -228,6 +291,66 @@ export const zh: Dictionary = {
       exportReport: "匯出報告",
       destructive: "刪除剖面",
     },
+    alertDialog: {
+      note: "dialog 的嚴格版:點外面不會關,必須明確回答;Esc 視同取消,鍵盤使用者永遠有出口。",
+      trigger: "Revoke access",
+      title: "撤銷這把 API 金鑰?",
+      description: "使用這把金鑰的整合將立即失效。",
+      body: "撤銷後無法復原,只能重新簽發一把新的金鑰。",
+      cancel: "取消",
+      confirm: "撤銷",
+    },
+    popover: {
+      note: "貼著觸發元素浮起的小板,最亮的一階、髮絲框、無陰影。",
+      trigger: "Scan window",
+      title: "掃描時窗",
+      body: "每日 02:00–05:00(UTC+8),避開業務尖峰。",
+    },
+    tooltip: {
+      note: "儀表註記:hover 或聚焦時出現,無箭頭——板不會收束成泡泡。",
+      trigger: "CT?",
+      tip: "Certificate Transparency — 憑證透明度日誌",
+    },
+    hoverCard: {
+      note: "hover 展開的卷宗板:popover 的唯讀親戚,預覽一個參照而不跳轉。",
+      trigger: "@astroicers",
+      title: "astroicers",
+      body: "starseam 的作者。開源外部攻擊面管理、零信任、AI 治理框架。",
+    },
+    contextMenu: {
+      note: "在指標處召出的選單,右鍵(或長按)觸發。表面規則與 dropdown 完全相同。",
+      area: "在這個區域按右鍵",
+      groupLabel: "ASSET",
+      run: "立即重掃",
+      exportReport: "複製主機名",
+      destructive: "自資產清單移除",
+    },
+    menubar: {
+      note: "主控台選單列:一片帶框的板,選單以 dropdown 板落下。開啟中的觸發鈕取較深的填色。",
+      scanMenu: "Scan",
+      viewMenu: "View",
+      run: "立即執行",
+      exportReport: "匯出報告",
+      destructive: "刪除剖面",
+      modeConsole: "夜勤模式",
+      modeReport: "日勤模式",
+    },
+    command: {
+      note: "主控台調色盤:輸入、過濾、執行。查詢行與結果之間是一道真正的接縫;高亮列是鉚釘。",
+      inputPlaceholder: "輸入指令或搜尋…",
+      empty: "沒有符合的指令。",
+      groupLabel: "SCAN",
+      items: ["立即執行完整掃描", "重新驗證憑證鏈", "匯出本週報告", "開啟稽核日誌"],
+    },
+    toast: {
+      note: "自邊緣滑入的訊息板,嚴重度是一道左緣色縫加文字本身——與 alert 同一套語言。",
+      neutralButton: "Notify",
+      critButton: "Notify crit",
+      neutralTitle: "報告已匯出",
+      neutralBody: "weekly-report.pdf 已寫入 out/。",
+      critTitle: "掃描失敗",
+      critBody: "目標拒絕連線,已重試 3 次。",
+    },
   },
   structure: {
     label: "STRUCTURE",
@@ -247,6 +370,37 @@ export const zh: Dictionary = {
         { host: "mail.example.gov.tw", service: "smtp/25", state: "warn", label: "review" },
         { host: "vpn.example.gov.tw", service: "https/443", state: "crit", label: "critical" },
         { host: "www.example.gov.tw", service: "https/443", state: "nominal", label: "nominal" },
+      ],
+    },
+    accordion: {
+      note: "疊板沿接縫展開;開啟的那件持有一顆鉚釘。面板現身不滑動。",
+      items: [
+        { title: "被動掃描收集什麼?", body: "DNS 紀錄與憑證透明度日誌,不對目標發出任何封包。" },
+        { title: "主動探測會被察覺嗎?", body: "會。Full 剖面包含 HTTP 指紋與埠掃描,請確認授權時窗。" },
+        { title: "歷史結果保留多久?", body: "掃描結果保留 180 天,之後彙整為月報後歸檔。" },
+      ],
+    },
+    collapsible: {
+      note: "沿接縫開闔的單一段落——accordion 的獨生版。",
+      trigger: "RAW RESPONSE",
+      body: "HTTP/2 200 · server: nginx · strict-transport-security: max-age=63072000 · x-frame-options: DENY",
+    },
+    breadcrumb: {
+      note: "結構中的路徑。每個節點交界都是真實邊界,所以分隔符是鉚釘——星只長在接縫上。",
+      segments: ["資產", "example.gov.tw"],
+      current: "vpn.example.gov.tw",
+    },
+    pagination: { note: "頁碼是純連結;當前頁是一顆鉚釘加全強度文字,不是藍膠囊。" },
+    scrollArea: {
+      note: "帶儀表捲軸的視窗:髮絲槽、鋼滑塊,沒有浮動膠囊。",
+      lines: [
+        "02:00:01 scan start · profile=passive",
+        "02:00:04 dns AXFR refused (expected)",
+        "02:00:12 ct-log 214 certificates indexed",
+        "02:01:33 new subdomain: staging.example.gov.tw",
+        "02:02:41 tls chain verified · 61 hosts",
+        "02:04:10 report written · out/scan-0818.json",
+        "02:04:11 scan complete · exit 0",
       ],
     },
   },

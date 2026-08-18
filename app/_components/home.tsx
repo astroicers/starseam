@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Plate } from "@/components/ui/plate";
 import { Seam } from "@/components/ui/seam";
 import { Lames } from "@/components/ui/lames";
@@ -60,6 +61,96 @@ import {
   TableCell,
 } from "@/components/ui/plate-table";
 import { CopyButton } from "@/components/ui/copy-button";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
+import { Kbd } from "@/components/ui/kbd";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Progress } from "@/components/ui/progress";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {
+  Pagination,
+  PaginationList,
+  PaginationItem,
+  PaginationLink,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
+import { PlateRadioGroup, PlateRadioItem } from "@/components/ui/plate-radio-group";
+import { PlateSlider } from "@/components/ui/plate-slider";
+import { PlateToggle } from "@/components/ui/plate-toggle";
+import {
+  PlateAccordion,
+  PlateAccordionItem,
+  PlateAccordionTrigger,
+  PlateAccordionContent,
+} from "@/components/ui/plate-accordion";
+import {
+  PlateCollapsible,
+  PlateCollapsibleTrigger,
+  PlateCollapsibleContent,
+} from "@/components/ui/plate-collapsible";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/plate-tooltip";
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/plate-popover";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/plate-hover-card";
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@/components/ui/plate-alert-dialog";
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuLabel,
+  ContextMenuSeparator,
+} from "@/components/ui/plate-context-menu";
+import {
+  Menubar,
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarContent,
+  MenubarItem,
+  MenubarSeparator,
+} from "@/components/ui/plate-menubar";
+import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+} from "@/components/ui/plate-command";
+import { PlateCalendar } from "@/components/ui/plate-calendar";
+import { PlateDatePicker } from "@/components/ui/plate-date-picker";
+import { PlateCombobox } from "@/components/ui/plate-combobox";
+import {
+  PlateInputOTP,
+  PlateInputOTPGroup,
+  PlateInputOTPSlot,
+  PlateInputOTPSeparator,
+} from "@/components/ui/plate-input-otp";
+import { ToastDemo } from "./toast-demo";
 import { Specimen } from "./specimen";
 import { SiteHeader } from "./site-header";
 import type { Dictionary, SectionHead } from "../_content/types";
@@ -249,6 +340,32 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
             ))}
           </Plate>
         </Specimen>
+
+        <div className="grid items-start gap-4 sm:grid-cols-2">
+        <Specimen names={["alert"]} note={d.surfaces.alert.note}>
+          <div className="space-y-3">
+            <Alert>
+              <AlertTitle>{d.surfaces.alert.title}</AlertTitle>
+              <AlertDescription>{d.surfaces.alert.body}</AlertDescription>
+            </Alert>
+            <Alert state="crit">
+              <AlertTitle>{d.surfaces.alert.critTitle}</AlertTitle>
+              <AlertDescription>{d.surfaces.alert.critBody}</AlertDescription>
+            </Alert>
+          </div>
+        </Specimen>
+
+        <Specimen names={["skeleton"]} note={d.surfaces.skeleton.note}>
+          <div className="flex items-start gap-4">
+            <Skeleton className="size-[36px]" />
+            <div className="flex-1 space-y-[10px]">
+              <Skeleton className="h-[12px] w-3/5" />
+              <Skeleton className="h-[12px] w-full" />
+              <Skeleton className="h-[12px] w-4/5" />
+            </div>
+          </div>
+        </Specimen>
+        </div>
         </div>
       </section>
 
@@ -306,6 +423,49 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
         <Specimen names={["mode-switch"]} note={d.instruments.modeSwitch.note}>
           <ModeSwitch />
         </Specimen>
+
+        <Specimen names={["badge"]} note={d.instruments.badge.note}>
+          <div className="flex flex-wrap gap-3">
+            {d.instruments.badge.rows.map((row) => (
+              <Badge key={row.state} state={row.state}>
+                {row.label}
+              </Badge>
+            ))}
+          </div>
+        </Specimen>
+
+        <Specimen names={["kbd"]} note={d.instruments.kbd.note}>
+          <div className="flex flex-wrap items-center gap-2 text-[13px] text-[var(--ss-text-3)]">
+            <Kbd>Ctrl</Kbd>+<Kbd>K</Kbd>
+            <span className="mx-2" />
+            <Kbd>Esc</Kbd>
+            <span className="mx-2" />
+            <Kbd>↑</Kbd>
+            <Kbd>↓</Kbd>
+          </div>
+        </Specimen>
+
+        <Specimen names={["avatar"]} note={d.instruments.avatar.note}>
+          <div className="flex items-center gap-3">
+            <Avatar>
+              <AvatarImage src="/mark-small-console.svg" alt="" />
+              <AvatarFallback>SS</AvatarFallback>
+            </Avatar>
+            <Avatar>
+              <AvatarFallback>SOC</AvatarFallback>
+            </Avatar>
+            <Avatar>
+              <AvatarFallback>AZ</AvatarFallback>
+            </Avatar>
+          </div>
+        </Specimen>
+
+        <Specimen names={["progress"]} note={d.instruments.progress.note}>
+          <div className="max-w-[320px]">
+            <Label>{d.instruments.progress.label}</Label>
+            <Progress value={64} className="mt-2" />
+          </div>
+        </Specimen>
         </div>
 
         <Specimen names={["stat-band"]} note={d.instruments.statBand.note}>
@@ -354,6 +514,85 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
               {d.controls.copy.sample}
             </code>
             <CopyButton value={d.controls.copy.sample} />
+          </div>
+        </Specimen>
+
+        <Specimen names={["plate-radio-group"]} note={d.controls.radio.note}>
+          <div>
+            <Label>{d.controls.radio.legend}</Label>
+            <PlateRadioGroup defaultValue={d.controls.radio.options[1].value} className="mt-3">
+              {d.controls.radio.options.map((o) => (
+                <label
+                  key={o.value}
+                  className="flex items-center gap-[9px] text-[14px] text-[var(--ss-text-2)]"
+                >
+                  <PlateRadioItem value={o.value} />
+                  {o.label}
+                </label>
+              ))}
+            </PlateRadioGroup>
+          </div>
+        </Specimen>
+
+        <Specimen names={["plate-slider"]} note={d.controls.slider.note}>
+          <div>
+            <Label>{d.controls.slider.label}</Label>
+            <PlateSlider defaultValue={[40]} max={100} step={5} className="mt-4 max-w-[300px]" />
+          </div>
+        </Specimen>
+
+        <Specimen names={["plate-toggle"]} note={d.controls.toggle.note}>
+          <PlateToggle defaultPressed>{d.controls.toggle.label}</PlateToggle>
+        </Specimen>
+
+        <Specimen names={["plate-combobox"]} note={d.controls.combobox.note}>
+          <div className="max-w-[280px]">
+            <Label>{d.controls.combobox.label}</Label>
+            <div className="mt-2">
+              <PlateCombobox
+                options={d.controls.combobox.options}
+                placeholder={d.controls.combobox.placeholder}
+                searchPlaceholder={d.controls.combobox.searchPlaceholder}
+                emptyMessage={d.controls.combobox.empty}
+              />
+            </div>
+          </div>
+        </Specimen>
+
+        <Specimen
+          names={["plate-calendar", "plate-date-picker"]}
+          note={d.controls.datePicker.note}
+          className="sm:col-span-2"
+        >
+          <div className="flex flex-wrap items-start gap-8">
+            <PlateCalendar mode="single" />
+            <div className="max-w-[220px]">
+              <Label>{d.controls.datePicker.label}</Label>
+              <div className="mt-2">
+                <PlateDatePicker />
+              </div>
+            </div>
+          </div>
+        </Specimen>
+
+        <Specimen names={["plate-input-otp"]} note={d.controls.otp.note}>
+          <div>
+            <Label>{d.controls.otp.label}</Label>
+            <div className="mt-3">
+              <PlateInputOTP maxLength={6}>
+                <PlateInputOTPGroup>
+                  <PlateInputOTPSlot index={0} />
+                  <PlateInputOTPSlot index={1} />
+                  <PlateInputOTPSlot index={2} />
+                </PlateInputOTPGroup>
+                <PlateInputOTPSeparator />
+                <PlateInputOTPGroup>
+                  <PlateInputOTPSlot index={3} />
+                  <PlateInputOTPSlot index={4} />
+                  <PlateInputOTPSlot index={5} />
+                </PlateInputOTPGroup>
+              </PlateInputOTP>
+            </div>
           </div>
         </Specimen>
         </div>
@@ -459,13 +698,156 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
             </DropdownMenuContent>
           </DropdownMenu>
         </Specimen>
+
+        <Specimen names={["plate-alert-dialog"]} note={d.overlays.alertDialog.note}>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <PlateButton>{d.overlays.alertDialog.trigger}</PlateButton>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>{d.overlays.alertDialog.title}</AlertDialogTitle>
+                <AlertDialogDescription>{d.overlays.alertDialog.description}</AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogBody>{d.overlays.alertDialog.body}</AlertDialogBody>
+              <AlertDialogFooter>
+                <AlertDialogCancel asChild>
+                  <PlateButton>{d.overlays.alertDialog.cancel}</PlateButton>
+                </AlertDialogCancel>
+                <AlertDialogAction asChild>
+                  <PlateButton className="border-[var(--ss-crit)] text-[var(--ss-crit)]">
+                    {d.overlays.alertDialog.confirm}
+                  </PlateButton>
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </Specimen>
+
+        <Specimen names={["plate-popover"]} note={d.overlays.popover.note}>
+          <Popover>
+            <PopoverTrigger asChild>
+              <PlateButton>{d.overlays.popover.trigger}</PlateButton>
+            </PopoverTrigger>
+            <PopoverContent>
+              <Label>{d.overlays.popover.title}</Label>
+              <p className="mt-2 text-[13.5px] leading-[1.8] text-[var(--ss-text-2)]">
+                {d.overlays.popover.body}
+              </p>
+            </PopoverContent>
+          </Popover>
+        </Specimen>
+
+        <Specimen names={["plate-tooltip"]} note={d.overlays.tooltip.note}>
+          <TooltipProvider delayDuration={200}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <PlateButton>{d.overlays.tooltip.trigger}</PlateButton>
+              </TooltipTrigger>
+              <TooltipContent>{d.overlays.tooltip.tip}</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </Specimen>
+
+        <Specimen names={["plate-hover-card"]} note={d.overlays.hoverCard.note}>
+          <HoverCard openDelay={200}>
+            <HoverCardTrigger asChild>
+              <a
+                href="https://github.com/astroicers"
+                className="font-[family-name:var(--ss-mono)] text-[13px] text-[var(--ss-text-2)] underline underline-offset-4 hover:text-[var(--ss-text)]"
+              >
+                {d.overlays.hoverCard.trigger}
+              </a>
+            </HoverCardTrigger>
+            <HoverCardContent>
+              <div className="flex items-center gap-3">
+                <Avatar>
+                  <AvatarFallback>AZ</AvatarFallback>
+                </Avatar>
+                <span className="font-[family-name:var(--ss-mono)] text-[13px] text-[var(--ss-text)]">
+                  {d.overlays.hoverCard.title}
+                </span>
+              </div>
+              <p className="mt-3 text-[13px] leading-[1.8] text-[var(--ss-text-2)]">
+                {d.overlays.hoverCard.body}
+              </p>
+            </HoverCardContent>
+          </HoverCard>
+        </Specimen>
+
+        <Specimen names={["plate-context-menu"]} note={d.overlays.contextMenu.note}>
+          <ContextMenu>
+            <ContextMenuTrigger asChild>
+              <div className="flex h-[90px] items-center justify-center rounded-[var(--ss-radius)] border border-dashed border-[var(--ss-seam-strong)] font-[family-name:var(--ss-mono)] text-[11px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)]">
+                {d.overlays.contextMenu.area}
+              </div>
+            </ContextMenuTrigger>
+            <ContextMenuContent>
+              <ContextMenuLabel>{d.overlays.contextMenu.groupLabel}</ContextMenuLabel>
+              <ContextMenuItem>{d.overlays.contextMenu.run}</ContextMenuItem>
+              <ContextMenuItem>{d.overlays.contextMenu.exportReport}</ContextMenuItem>
+              <ContextMenuSeparator />
+              <ContextMenuItem destructive>{d.overlays.contextMenu.destructive}</ContextMenuItem>
+            </ContextMenuContent>
+          </ContextMenu>
+        </Specimen>
+
+        <Specimen names={["plate-menubar"]} note={d.overlays.menubar.note}>
+          <Menubar>
+            <MenubarMenu>
+              <MenubarTrigger>{d.overlays.menubar.scanMenu}</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>{d.overlays.menubar.run}</MenubarItem>
+                <MenubarItem>{d.overlays.menubar.exportReport}</MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem destructive>{d.overlays.menubar.destructive}</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+            <MenubarMenu>
+              <MenubarTrigger>{d.overlays.menubar.viewMenu}</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>{d.overlays.menubar.modeConsole}</MenubarItem>
+                <MenubarItem>{d.overlays.menubar.modeReport}</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
+        </Specimen>
+
+        <Specimen
+          names={["plate-command"]}
+          note={d.overlays.command.note}
+          className="lg:col-span-2"
+        >
+          <Command className="max-w-[420px]">
+            <CommandInput placeholder={d.overlays.command.inputPlaceholder} />
+            <CommandList>
+              <CommandEmpty>{d.overlays.command.empty}</CommandEmpty>
+              <CommandGroup heading={d.overlays.command.groupLabel}>
+                {d.overlays.command.items.map((item) => (
+                  <CommandItem key={item}>{item}</CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </Specimen>
+
+        <Specimen names={["plate-toast"]} note={d.overlays.toast.note}>
+          <ToastDemo
+            neutralButton={d.overlays.toast.neutralButton}
+            critButton={d.overlays.toast.critButton}
+            neutralTitle={d.overlays.toast.neutralTitle}
+            neutralBody={d.overlays.toast.neutralBody}
+            critTitle={d.overlays.toast.critTitle}
+            critBody={d.overlays.toast.critBody}
+          />
+        </Specimen>
         </div>
       </section>
 
       {/* ---------------------------------------------------------------- */}
       <section id="structure" className="mt-20 scroll-mt-8">
         <SectionHeading id="structure" head={d.structure} />
-        <div className="mt-8">
+        <div className="mt-8 space-y-4">
         <Specimen names={["plate-tabs", "plate-table"]} note={d.structure.tabs.note}>
           <Tabs defaultValue="assets">
             <TabsList>
@@ -499,6 +881,87 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
             <TabsContent value="history">{d.structure.tabs.historyBody}</TabsContent>
           </Tabs>
         </Specimen>
+
+        <Specimen names={["plate-accordion"]} note={d.structure.accordion.note}>
+          <PlateAccordion type="single" collapsible className="max-w-[560px]">
+            {d.structure.accordion.items.map((item, i) => (
+              <PlateAccordionItem key={item.title} value={`item-${i}`}>
+                <PlateAccordionTrigger>{item.title}</PlateAccordionTrigger>
+                <PlateAccordionContent>{item.body}</PlateAccordionContent>
+              </PlateAccordionItem>
+            ))}
+          </PlateAccordion>
+        </Specimen>
+
+        <div className="grid items-start gap-4 sm:grid-cols-2">
+        <Specimen names={["breadcrumb"]} note={d.structure.breadcrumb.note}>
+          <Breadcrumb>
+            <BreadcrumbList>
+              {d.structure.breadcrumb.segments.map((seg) => (
+                <React.Fragment key={seg}>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="#structure">{seg}</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                </React.Fragment>
+              ))}
+              <BreadcrumbItem>
+                <BreadcrumbPage>{d.structure.breadcrumb.current}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </Specimen>
+
+        <Specimen names={["pagination"]} note={d.structure.pagination.note}>
+          <Pagination>
+            <PaginationList>
+              <PaginationItem>
+                <PaginationLink href="#structure">1</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#structure" isActive>
+                  2
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#structure">3</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationEllipsis />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#structure">12</PaginationLink>
+              </PaginationItem>
+            </PaginationList>
+          </Pagination>
+        </Specimen>
+
+        <Specimen names={["plate-collapsible"]} note={d.structure.collapsible.note}>
+          <PlateCollapsible>
+            <PlateCollapsibleTrigger>{d.structure.collapsible.trigger}</PlateCollapsibleTrigger>
+            <PlateCollapsibleContent>
+              <code className="font-[family-name:var(--ss-mono)] text-[12px] leading-[1.9] text-[var(--ss-text-2)]">
+                {d.structure.collapsible.body}
+              </code>
+            </PlateCollapsibleContent>
+          </PlateCollapsible>
+        </Specimen>
+
+        <Specimen names={["scroll-area"]} note={d.structure.scrollArea.note}>
+          <ScrollArea className="h-[120px] rounded-[var(--ss-radius)] border border-[var(--ss-seam)]">
+            <div className="p-[10px]">
+              {d.structure.scrollArea.lines.map((line) => (
+                <p
+                  key={line}
+                  className="py-[3px] font-[family-name:var(--ss-mono)] text-[12px] leading-[1.6] text-[var(--ss-text-2)]"
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+          </ScrollArea>
+        </Specimen>
+        </div>
         </div>
       </section>
 

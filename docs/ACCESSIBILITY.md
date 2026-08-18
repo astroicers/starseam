@@ -87,8 +87,8 @@ v0.3.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一�
 - **dropdown / select**:Enter 開啟、方向鍵在項目間移動、Esc 關閉、焦點回到觸發元素。
 - **tabs**:方向鍵移動並即時啟用、`Home`/`End` 跳至首末、方向鍵在兩端循環、
   Tab 離開 tablist(roving tabindex,整個 tablist 只佔一個 Tab 停留點)。
-- **Tab 順序**:全目錄展示頁 36 個可聚焦元素,實走順序與 DOM 順序一致;
-  無任何正值 `tabindex`;`lames` 交疊區內無可聚焦元素,不構成跳躍點。
+- **Tab 順序**:全目錄展示頁(49 元件版)162 個可聚焦元素,無任何正值 `tabindex`,
+  焦點順序即 DOM 順序;`lames` 交疊區內無可聚焦元素,不構成跳躍點。
 - **mode-switch**(v0.3.0):`radiogroup` / `radio` 語意(Radix ToggleGroup single),
   整個群組佔一個 Tab 停留點,方向鍵在自動/夜勤/日勤間移動、Enter/Space 選取;
   點擊已選中段不會清空選取;「自動」清除 `localStorage` 並回到跟隨系統偏好。
@@ -96,6 +96,20 @@ v0.3.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一�
 - **語言切換**(v0.3.0):純連結(`/` 繁中、`/en` 英文),各 locale 是獨立
   root layout,`<html lang>` 各自正確;現行 locale 標 `aria-current="page"` +
   鉚釘;切換為整頁載入,模式偏好經 localStorage 跨 locale 保持。
+- **v0.3.0 新增品項實測**(Chromium 151):
+  - `plate-alert-dialog`:點擊外部**不**關閉(實測維持開啟)、Esc 視同取消、
+    關閉後焦點回到觸發鈕
+  - `plate-popover` / `plate-tooltip` / `plate-hover-card`:鍵盤聚焦即可開啟
+    (tooltip 於 focus 顯示)、Esc 關閉、焦點歸還
+  - `plate-context-menu`:右鍵開啟、Esc 關閉
+  - `plate-menubar`:方向鍵在選單間移動焦點(roving tabindex)
+  - `plate-combobox`:過濾後 Enter 選取,值寫入隱藏 input;
+    `aria-controls`/`aria-expanded` 齊備
+  - `plate-calendar`:日期格為按鈕、選取標 `aria-selected`
+  - `plate-input-otp`:實體 input 承接輸入(`autocomplete="one-time-code"`),
+    格子為視覺呈現;游標為靜止短棒(閃爍是循環,循環只屬於 crit)
+  - `progress` 無不定態、`skeleton` 無 shimmer——同一條裁決 08 的推論,
+    已記入 DECISIONS 被否決的方向
 
 ---
 

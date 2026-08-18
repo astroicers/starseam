@@ -443,6 +443,456 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "A message plate with a severity edge. The colour never stands alone — the title carries the meaning.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A stamped status tag: hairline border, no fill. Colour is severity, never decoration.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "A key cap: a raised plate the size of a keystroke, pressed metal without a shadow.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "A placeholder plate. It does not shimmer — the only permitted loop belongs to crit.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "An identity plate: square, hairline seam, instrument-lettered fallback.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-avatar"
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "A determinate reading in rivet steel. No indeterminate sweep — an endless loop belongs to crit alone.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-progress"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "A path through the structure. Every junction is a real boundary, so the separators are rivets.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page links; the current page is a rivet and full-strength text, never lapis.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "plate-radio-group",
+      "type": "registry:ui",
+      "title": "Plate radio group",
+      "description": "The chosen option holds a rivet driven into its centre. Selection is silver, never lapis.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-radio-group"
+      ]
+    },
+    {
+      "name": "plate-slider",
+      "type": "registry:ui",
+      "title": "Plate slider",
+      "description": "A setting dragged along a seam. Track, range, and thumb are steel; blue appears only as focus.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slider"
+      ]
+    },
+    {
+      "name": "plate-toggle",
+      "type": "registry:ui",
+      "title": "Plate toggle",
+      "description": "A pressed-state button. On is a rivet and a deeper fill, never lapis.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-toggle"
+      ]
+    },
+    {
+      "name": "plate-accordion",
+      "type": "registry:ui",
+      "title": "Plate accordion",
+      "description": "Stacked plates that open along their seams; the open item holds a rivet.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-accordion"
+      ]
+    },
+    {
+      "name": "plate-collapsible",
+      "type": "registry:ui",
+      "title": "Plate collapsible",
+      "description": "A single section that opens along its seam — the accordion's one-item cousin.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-collapsible"
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll area",
+      "description": "A viewport with an instrument scrollbar: hairline channel, steel thumb, no floating pill.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-scroll-area"
+      ]
+    },
+    {
+      "name": "plate-tooltip",
+      "type": "registry:ui",
+      "title": "Plate tooltip",
+      "description": "An instrument annotation: the lightest plate, hairline edge, no shadow and no arrow.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tooltip"
+      ]
+    },
+    {
+      "name": "plate-popover",
+      "type": "registry:ui",
+      "title": "Plate popover",
+      "description": "A small plate lifted beside its trigger. Entry and exit come from the theme.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ]
+    },
+    {
+      "name": "plate-hover-card",
+      "type": "registry:ui",
+      "title": "Plate hover card",
+      "description": "A dossier plate raised on hover — the popover's read-only sibling.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-hover-card"
+      ]
+    },
+    {
+      "name": "plate-alert-dialog",
+      "type": "registry:ui",
+      "title": "Plate alert dialog",
+      "description": "The dialog's stricter sibling: an answer is required. Same plate, same seams.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/seam.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-alert-dialog"
+      ]
+    },
+    {
+      "name": "plate-context-menu",
+      "type": "registry:ui",
+      "title": "Plate context menu",
+      "description": "The dropdown menu summoned at the pointer. Destructive actions take 緋, always with text.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-context-menu"
+      ]
+    },
+    {
+      "name": "plate-menubar",
+      "type": "registry:ui",
+      "title": "Plate menubar",
+      "description": "A console menu strip: instrument-lettered triggers, menus falling as dropdown plates.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-menubar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-menubar"
+      ]
+    },
+    {
+      "name": "plate-command",
+      "type": "registry:ui",
+      "title": "Plate command",
+      "description": "The console palette: type, filter, execute. The highlighted row is a rivet, never lapis.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/seam.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "cmdk"
+      ]
+    },
+    {
+      "name": "plate-calendar",
+      "type": "registry:ui",
+      "title": "Plate calendar",
+      "description": "A month on the full-width grid; the selected day is a rivet driven home.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "react-day-picker"
+      ]
+    },
+    {
+      "name": "plate-date-picker",
+      "type": "registry:ui",
+      "title": "Plate date picker",
+      "description": "A calendar in a popover. The date lands in a hidden input — no callback required.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/plate-calendar.json",
+        "https://starseam.astroicers.link/r/plate-popover.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "plate-combobox",
+      "type": "registry:ui",
+      "title": "Plate combobox",
+      "description": "A select with a filter line. Options are data, the value rides a hidden input.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/plate-command.json",
+        "https://starseam.astroicers.link/r/plate-popover.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "plate-toast",
+      "type": "registry:ui",
+      "title": "Plate toast",
+      "description": "Message plates sliding in from the edge. Severity is a coloured seam plus the text itself.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-toast.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "name": "plate-input-otp",
+      "type": "registry:ui",
+      "title": "Plate input OTP",
+      "description": "A code entered one plate at a time. The active slot is edged in lapis because it holds focus.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "input-otp"
+      ]
     }
   ]
 }

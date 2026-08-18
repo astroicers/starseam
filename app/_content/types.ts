@@ -73,6 +73,8 @@ export interface Dictionary {
       aspBody: string;
     };
     seam: { note: string; rows: string[] };
+    alert: { note: string; title: string; body: string; critTitle: string; critBody: string };
+    skeleton: { note: string };
   };
   instruments: SectionHead & {
     mark: { note: string };
@@ -91,6 +93,10 @@ export interface Dictionary {
     };
     codeTag: { note: string; samples: string[] };
     modeSwitch: { note: string };
+    badge: { note: string; rows: { state: "nominal" | "live" | "warn" | "crit"; label: string }[] };
+    kbd: { note: string };
+    avatar: { note: string };
+    progress: { note: string; label: string };
   };
   controls: SectionHead & {
     button: { note: string; quiet: string; live: string; disabled: string };
@@ -115,6 +121,19 @@ export interface Dictionary {
       switch: string;
     };
     copy: { note: string; sample: string };
+    radio: { note: string; legend: string; options: { value: string; label: string }[] };
+    slider: { note: string; label: string };
+    toggle: { note: string; label: string };
+    combobox: {
+      note: string;
+      label: string;
+      placeholder: string;
+      searchPlaceholder: string;
+      empty: string;
+      options: { value: string; label: string }[];
+    };
+    datePicker: { note: string; label: string };
+    otp: { note: string; label: string };
   };
   overlays: SectionHead & {
     dialog: {
@@ -142,6 +161,52 @@ export interface Dictionary {
       exportReport: string;
       destructive: string;
     };
+    alertDialog: {
+      note: string;
+      trigger: string;
+      title: string;
+      description: string;
+      body: string;
+      cancel: string;
+      confirm: string;
+    };
+    popover: { note: string; trigger: string; title: string; body: string };
+    tooltip: { note: string; trigger: string; tip: string };
+    hoverCard: { note: string; trigger: string; title: string; body: string };
+    contextMenu: {
+      note: string;
+      area: string;
+      groupLabel: string;
+      run: string;
+      exportReport: string;
+      destructive: string;
+    };
+    menubar: {
+      note: string;
+      scanMenu: string;
+      viewMenu: string;
+      run: string;
+      exportReport: string;
+      destructive: string;
+      modeConsole: string;
+      modeReport: string;
+    };
+    command: {
+      note: string;
+      inputPlaceholder: string;
+      empty: string;
+      groupLabel: string;
+      items: string[];
+    };
+    toast: {
+      note: string;
+      neutralButton: string;
+      critButton: string;
+      neutralTitle: string;
+      neutralBody: string;
+      critTitle: string;
+      critBody: string;
+    };
   };
   structure: SectionHead & {
     tabs: {
@@ -161,6 +226,11 @@ export interface Dictionary {
         label: string;
       }[];
     };
+    accordion: { note: string; items: { title: string; body: string }[] };
+    collapsible: { note: string; trigger: string; body: string };
+    breadcrumb: { note: string; segments: string[]; current: string };
+    pagination: { note: string };
+    scrollArea: { note: string; lines: string[] };
   };
   decisions: SectionHead & {
     rulings: [string, string, string][];

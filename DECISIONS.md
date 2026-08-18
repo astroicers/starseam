@@ -206,6 +206,12 @@ v0.1.0 曾有五組對比度不合格,其中 `--ss-text-3`(所有儀器標籤的
 | 八幡座(作為系統名) | 四音節難拼,且「八幡」帶神社與軍神色彩,不宜用於國防標案語境 |
 | 明體標題 | 東方美學站的標配,與參考來源撞得太近 |
 | `/ja` locale | 典故要深,表面要誠實(07)。做一半的日文比沒有日文更傷可信度;留待有把握產出真正像樣的日文文案時再開 |
+| `form`(react-hook-form 包裝) | `FormField` 是 render prop,正面違反裁決 11。`field` 以元素注入承擔同一職責 |
+| `carousel` | 滑動輪播不在裁決 08 的允許動態清單。若日後要做,只能是無動畫的 CSS scroll-snap |
+| `sidebar` / `navigation-menu` | 站台版型,不是表面語彙。starseam 的 header 是自己的答案 |
+| `drawer` | `plate-sheet` 的 `side="bottom"` 已涵蓋同一動作 |
+| `resizable` / `aspect-ratio` | 版型工具,無設計表面可言 |
+| skeleton shimmer / 不定態 progress / OTP 閃爍游標 | 三者都是循環動畫。系統唯一的循環屬於 crit(08),靜止版本照做,循環不做 |
 
 ---
 

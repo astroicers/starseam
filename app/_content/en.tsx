@@ -38,7 +38,7 @@ export const en: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "23" },
+    { label: "ITEMS", value: "49" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -115,6 +115,16 @@ export const en: Dictionary = {
       note: "A hairline scored into a single plate, decorative only — grouping is carried by the heading structure, never by this line.",
       rows: ["Between sections", "Between list items", "Where navigation meets content"],
     },
+    alert: {
+      note: "A message plate with a severity edge — a strengthened seam on the left. The colour never stands alone; the title says it in words.",
+      title: "Schedule paused",
+      body: "More than three scans queued; new jobs wait for the next window.",
+      critTitle: "Certificate expiring",
+      critBody: "The certificate on vpn.example.gov.tw expires in 3 days. Replace it now.",
+    },
+    skeleton: {
+      note: "A placeholder plate. It does not shimmer and it does not pulse — the only permitted loop belongs to crit. Waiting quietly is honest waiting.",
+    },
   },
   instruments: {
     label: "INSTRUMENTS",
@@ -159,6 +169,21 @@ export const en: Dictionary = {
     },
     modeSwitch: {
       note: "Tri-state: auto hands the choice back to the system. The document element is the single source of truth — this instance and the one in the header can never disagree.",
+    },
+    badge: {
+      note: "A stamped status tag: hairline border, no fill. A coloured badge is a claim about the state of the thing, not decoration.",
+      rows: [
+        { state: "nominal", label: "queued" },
+        { state: "live", label: "scanning" },
+        { state: "warn", label: "degraded" },
+        { state: "crit", label: "breached" },
+      ],
+    },
+    kbd: { note: "A key cap: a keystroke-sized raised plate, expressed with fill and a strengthened bottom seam — no shadow." },
+    avatar: { note: "An identity plate: square, 2px radius, hairline seam; the fallback is instrument lettering, not a pastel disc." },
+    progress: {
+      note: "A determinate reading in rivet steel. No indeterminate sweep — an endless loop belongs to crit alone; if the length is unknown, say so in text.",
+      label: "SCAN 64%",
     },
   },
   controls: {
@@ -206,6 +231,44 @@ export const en: Dictionary = {
       note: "Puts a value on the clipboard. The confirmation is a rivet and a label swap — an acknowledged action reads as selection, not severity. One sits beside every install command on this page.",
       sample: "ssh soc@ops.example.gov.tw",
     },
+    radio: {
+      note: "The chosen option holds a rivet driven into its centre. Selection is silver; lapis appears only as the focus ring.",
+      legend: "REPORT CADENCE",
+      options: [
+        { value: "daily", label: "Daily" },
+        { value: "weekly", label: "Weekly" },
+        { value: "incident", label: "On incident only" },
+      ],
+    },
+    slider: {
+      note: "A setting dragged along a seam: hairline channel, steel range, steel thumb.",
+      label: "SCAN INTENSITY",
+    },
+    toggle: {
+      note: "A pressed-state button. Pressed is a rivet and a deeper fill, not blue.",
+      label: "RAW VIEW",
+    },
+    combobox: {
+      note: "A select with a filter line. Options are data and the value rides a hidden input into the form — the public API takes no functions.",
+      label: "ASSIGN ANALYST",
+      placeholder: "Assign an analyst…",
+      searchPlaceholder: "Filter…",
+      empty: "No one matches.",
+      options: [
+        { value: "chen", label: "S. Chen" },
+        { value: "lin", label: "J. Lin" },
+        { value: "wang", label: "T. Wang" },
+        { value: "duty", label: "On-call rotation" },
+      ],
+    },
+    datePicker: {
+      note: "A calendar in a popover; the date lands in a hidden input — no callback required. The chosen day is a rivet driven home.",
+      label: "ENGAGEMENT START",
+    },
+    otp: {
+      note: "A code entered one plate at a time. The active slot is edged in lapis because it holds focus — the one legal home for the blue. The caret is a still bar: blinking is a loop, and loops belong to crit.",
+      label: "VERIFICATION CODE",
+    },
   },
   overlays: {
     label: "OVERLAYS",
@@ -237,6 +300,66 @@ export const en: Dictionary = {
       exportReport: "Export report",
       destructive: "Delete profile",
     },
+    alertDialog: {
+      note: "The dialog's stricter sibling: clicking outside does not dismiss it — an explicit answer is required. Esc counts as cancel, so keyboard users always have an exit.",
+      trigger: "Revoke access",
+      title: "Revoke this API key?",
+      description: "Integrations using this key stop working immediately.",
+      body: "Revocation cannot be undone; the only way back is issuing a new key.",
+      cancel: "Cancel",
+      confirm: "Revoke",
+    },
+    popover: {
+      note: "A small plate lifted beside its trigger: the lightest cut, hairline edge, no shadow.",
+      trigger: "Scan window",
+      title: "Scan window",
+      body: "Daily 02:00–05:00 (UTC+8), clear of business peaks.",
+    },
+    tooltip: {
+      note: "An instrument annotation on hover or focus. No arrow — a plate does not taper into a bubble.",
+      trigger: "CT?",
+      tip: "Certificate Transparency — the public certificate log",
+    },
+    hoverCard: {
+      note: "A dossier plate raised on hover: the popover's read-only sibling, previewing a reference without following it.",
+      trigger: "@astroicers",
+      title: "astroicers",
+      body: "Author of starseam. Open-source attack-surface management, zero trust, AI governance.",
+    },
+    contextMenu: {
+      note: "A menu summoned at the pointer — right-click or long-press. Same surface rules as the dropdown.",
+      area: "Right-click this area",
+      groupLabel: "ASSET",
+      run: "Rescan now",
+      exportReport: "Copy hostname",
+      destructive: "Remove from inventory",
+    },
+    menubar: {
+      note: "A console menu strip: one bordered plate, menus falling as dropdown plates. The open trigger takes a deeper fill.",
+      scanMenu: "Scan",
+      viewMenu: "View",
+      run: "Run now",
+      exportReport: "Export report",
+      destructive: "Delete profile",
+      modeConsole: "Console mode",
+      modeReport: "Report mode",
+    },
+    command: {
+      note: "The console palette: type, filter, execute. A real seam separates the query line from the results; the highlighted row is a rivet.",
+      inputPlaceholder: "Type a command or search…",
+      empty: "No matching command.",
+      groupLabel: "SCAN",
+      items: ["Run full scan now", "Re-verify certificate chains", "Export weekly report", "Open audit log"],
+    },
+    toast: {
+      note: "Message plates sliding in from the edge. Severity is a coloured left seam plus the text itself — the same language as alert.",
+      neutralButton: "Notify",
+      critButton: "Notify crit",
+      neutralTitle: "Report exported",
+      neutralBody: "weekly-report.pdf written to out/.",
+      critTitle: "Scan failed",
+      critBody: "Target refused the connection after 3 retries.",
+    },
   },
   structure: {
     label: "STRUCTURE",
@@ -257,6 +380,37 @@ export const en: Dictionary = {
         { host: "mail.example.gov.tw", service: "smtp/25", state: "warn", label: "review" },
         { host: "vpn.example.gov.tw", service: "https/443", state: "crit", label: "critical" },
         { host: "www.example.gov.tw", service: "https/443", state: "nominal", label: "nominal" },
+      ],
+    },
+    accordion: {
+      note: "Stacked plates opening along their seams; the open item holds a rivet. The panel appears without a slide.",
+      items: [
+        { title: "What does a passive scan collect?", body: "DNS records and certificate-transparency logs. No packets are sent to the target." },
+        { title: "Will active probing be noticed?", body: "Yes. The Full profile includes HTTP fingerprinting and port scans — confirm the authorised window." },
+        { title: "How long are results kept?", body: "Scan results are kept for 180 days, then rolled into monthly reports and archived." },
+      ],
+    },
+    collapsible: {
+      note: "A single section opening along its seam — the accordion's only child.",
+      trigger: "RAW RESPONSE",
+      body: "HTTP/2 200 · server: nginx · strict-transport-security: max-age=63072000 · x-frame-options: DENY",
+    },
+    breadcrumb: {
+      note: "A path through the structure. Every junction is a real boundary, so the separators are rivets — stars live only on seams.",
+      segments: ["Assets", "example.gov.tw"],
+      current: "vpn.example.gov.tw",
+    },
+    pagination: { note: "Plain links; the current page is a rivet and full-strength text, not a blue pill." },
+    scrollArea: {
+      note: "A viewport with an instrument scrollbar: hairline channel, steel thumb, no floating pill.",
+      lines: [
+        "02:00:01 scan start · profile=passive",
+        "02:00:04 dns AXFR refused (expected)",
+        "02:00:12 ct-log 214 certificates indexed",
+        "02:01:33 new subdomain: staging.example.gov.tw",
+        "02:02:41 tls chain verified · 61 hosts",
+        "02:04:10 report written · out/scan-0818.json",
+        "02:04:11 scan complete · exit 0",
       ],
     },
   },
