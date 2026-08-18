@@ -222,18 +222,21 @@
       ]
     },
     {
-      "name": "mode-toggle",
+      "name": "mode-switch",
       "type": "registry:ui",
-      "title": "Mode toggle",
-      "description": "console (夜勤) ↔ report (日勤). Two materials, not an inversion.",
+      "title": "Mode switch",
+      "description": "auto / console (夜勤) / report (日勤). Two materials, not an inversion; the selection is a rivet, never lapis.",
       "registryDependencies": [
         "https://starseam.astroicers.link/r/theme.json"
       ],
       "files": [
         {
-          "path": "registry/starseam/ui/mode-toggle.tsx",
+          "path": "registry/starseam/ui/mode-switch.tsx",
           "type": "registry:ui"
         }
+      ],
+      "dependencies": [
+        "@radix-ui/react-toggle-group"
       ]
     },
     {

@@ -8,7 +8,7 @@ import { StatusDot } from "@/components/ui/status-dot";
 import { StatBand } from "@/components/ui/stat-band";
 import { CodeTag } from "@/components/ui/code-tag";
 import { PlateButton } from "@/components/ui/plate-button";
-import { ModeToggle } from "@/components/ui/mode-toggle";
+import { ModeSwitch } from "@/components/ui/mode-switch";
 import { PlateInput } from "@/components/ui/plate-input";
 import { PlateTextarea } from "@/components/ui/plate-textarea";
 import { Field } from "@/components/ui/field";
@@ -96,7 +96,7 @@ export default function Home() {
     <main className="mx-auto max-w-[880px] px-6 py-16">
       <header className="flex items-start justify-between gap-8">
         <Mark size={116} plates={24} rings={2} majorEvery={6} />
-        <ModeToggle className="mt-2" />
+        <ModeSwitch className="mt-2" labels={{ auto: "自動", console: "夜勤", report: "日勤" }} aria-label="色彩模式" />
       </header>
 
       <h1 className="mt-10 font-[family-name:var(--ss-mono)] text-[clamp(30px,6vw,52px)] font-semibold leading-none tracking-[0.005em]">

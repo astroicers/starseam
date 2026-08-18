@@ -1,6 +1,6 @@
 {
   "name": "starseam",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Stars live where the plates meet. A shadcn registry built on a lacquer ground, with structural rivets and first-class Traditional Chinese typography.",
   "license": "MIT",
@@ -23,6 +23,7 @@
     "@radix-ui/react-slot": "^1.3.3",
     "@radix-ui/react-switch": "^1.3.7",
     "@radix-ui/react-tabs": "^1.1.21",
+    "@radix-ui/react-toggle-group": "^1.1.19",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.31.0",

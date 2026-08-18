@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans_JP, Noto_Sans_TC } from "next/font/google";
-import { MODE_SCRIPT } from "@/components/ui/mode-toggle";
+import { MODE_SCRIPT } from "@/components/ui/mode-switch";
 import "./globals.css";
 
 const mono = IBM_Plex_Mono({
