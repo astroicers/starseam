@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="starseam">
+  <title>starseam</title>
+  <desc>Plan of a star-riveted helmet: plates radiating from a central aperture, rivets along every seam. Reads equally as a star chart and a radar scope.</desc>
+  <circle cx="32.0" cy="32.0" r="28.80" fill="none" stroke="#C9C9CE" stroke-width="1.4"/>
+  <line x1="32.00" y1="26.08" x2="32.00" y2="3.20" stroke="#C9C9CE" stroke-width="1.05"/>
+  <circle cx="32.00" cy="10.06" r="1.09" fill="#5E646E"/>
+  <line x1="36.19" y1="27.81" x2="52.36" y2="11.64" stroke="#C9C9CE" stroke-width="1.05"/>
+  <circle cx="47.51" cy="16.49" r="0.61" fill="#9AA0AA"/>
+  <line x1="37.92" y1="32.00" x2="60.80" y2="32.00" stroke="#C9C9CE" stroke-width="1.05"/>
+  <circle cx="53.94" cy="32.00" r="1.09" fill="#5E646E"/>
+  <line x1="36.19" y1="36.19" x2="52.36" y2="52.36" stroke="#C9C9CE" stroke-width="1.05"/>
+  <circle cx="47.51" cy="47.51" r="0.61" fill="#9AA0AA"/>
+  <line x1="32.00" y1="37.92" x2="32.00" y2="60.80" stroke="#C9C9CE" stroke-width="1.05"/>
+  <circle cx="32.00" cy="53.94" r="1.09" fill="#5E646E"/>
+  <line x1="27.81" y1="36.19" x2="11.64" y2="52.36" stroke="#C9C9CE" stroke-width="1.05"/>
+  <circle cx="16.49" cy="47.51" r="0.61" fill="#9AA0AA"/>
+  <line x1="26.08" y1="32.00" x2="3.20" y2="32.00" stroke="#C9C9CE" stroke-width="1.05"/>
+  <circle cx="10.06" cy="32.00" r="1.09" fill="#5E646E"/>
+  <line x1="27.81" y1="27.81" x2="11.64" y2="11.64" stroke="#C9C9CE" stroke-width="1.05"/>
+  <circle cx="16.49" cy="16.49" r="0.61" fill="#9AA0AA"/>
+  <circle cx="32.0" cy="32.0" r="5.92" fill="#EDEDEF" stroke="#21509E" stroke-width="1.68"/>
+  <circle cx="32.0" cy="32.0" r="2.25" fill="#21509E"/>
+</svg>

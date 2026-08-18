@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "../registry/starseam/theme/starseam.css";
+
+@layer base {
+  * {
+    border-color: var(--ss-seam);
+  }
+  ::selection {
+    background: var(--ss-live);
+    color: var(--ss-ground);
+  }
+  :focus-visible {
+    outline: 1px solid var(--ss-live);
+    outline-offset: 2px;
+  }
+}

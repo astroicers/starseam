@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # The contrast gate runs first and cheapest — a design system that
+      # fails its own accessibility statement should not build.
+      - name: Contrast audit
+        run: node scripts/audit-contrast.mjs
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build registry
+        run: npm run registry:build
+
+      - name: Build site
+        run: npm run build

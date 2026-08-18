@@ -1,0 +1,430 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "starseam",
+  "homepage": "https://starseam.astroicers.link",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "starseam theme",
+      "description": "The token layer — lacquer ground, structural rivets, severity colour, the em grid, and per-language CJK font stacks. Every other item pulls this.",
+      "files": [
+        {
+          "path": "registry/starseam/theme/starseam.css",
+          "type": "registry:file",
+          "target": "styles/starseam.css"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "ss-mono": "\"IBM Plex Mono\", ui-monospace, SFMono-Regular, Menlo, monospace",
+          "ss-sans-tc": "\"IBM Plex Sans TC\", \"Noto Sans TC\", sans-serif",
+          "ss-sans-jp": "\"IBM Plex Sans JP\", \"Noto Sans JP\", sans-serif",
+          "ss-em": "16px",
+          "ss-half": "8px",
+          "ss-track-body": "0.03em",
+          "ss-track-head": "0.12em",
+          "ss-track-label": "0.2em",
+          "ss-leading-body": "1.95",
+          "ss-radius": "2px",
+          "ss-hairline": "1px",
+          "ss-rivet-size": "3.5px",
+          "ss-rivet-pitch": "9px",
+          "ss-dur": "160ms",
+          "ss-ease": "cubic-bezier(0.2, 0.6, 0.2, 1)"
+        },
+        "light": {
+          "ss-ground": "#ededef",
+          "ss-plate-1": "#f4f4f6",
+          "ss-plate-2": "#fafafb",
+          "ss-plate-3": "#ffffff",
+          "ss-seam": "#dcdce0",
+          "ss-seam-strong": "#c4c4cb",
+          "ss-rivet": "#6b7280",
+          "ss-rivet-quiet": "#a8adb6",
+          "ss-text": "#16161a",
+          "ss-text-2": "#5e626b",
+          "ss-text-3": "#6b6b73",
+          "ss-live": "#21509e",
+          "ss-warn": "#84600f",
+          "ss-crit": "#9c3b36"
+        },
+        "dark": {
+          "ss-ground": "#0a0a0c",
+          "ss-plate-1": "#101013",
+          "ss-plate-2": "#16161a",
+          "ss-plate-3": "#1c1c21",
+          "ss-seam": "#1e1e22",
+          "ss-seam-strong": "#2a2a30",
+          "ss-rivet": "#7e8794",
+          "ss-rivet-quiet": "#4a4e56",
+          "ss-text": "#e2e2e6",
+          "ss-text-2": "#9ba3ae",
+          "ss-text-3": "#83838d",
+          "ss-live": "#4f86d6",
+          "ss-warn": "#b9903f",
+          "ss-crit": "#c7605b"
+        }
+      }
+    },
+    {
+      "name": "plate",
+      "type": "registry:ui",
+      "title": "Plate",
+      "description": "The base surface. One iron plate — no shadow, no glass.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "seam",
+      "type": "registry:ui",
+      "title": "Seam",
+      "description": "The signature: a row of rivets marking where two blocks actually join.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/seam.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "lames",
+      "type": "registry:ui",
+      "title": "Lames",
+      "description": "A stack of plates, each pressing onto the one below.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/plate.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/lames.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "An instrument label — mono, small, widely tracked.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "value",
+      "type": "registry:ui",
+      "title": "Value",
+      "description": "A readout with tabular figures and a severity state.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/value.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-dot",
+      "type": "registry:ui",
+      "title": "Status dot",
+      "description": "A single rivet standing in for a status. Only critical animates.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/status-dot.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "mark",
+      "type": "registry:ui",
+      "title": "Mark",
+      "description": "Helmet plan, star chart, radar scope — one mark, three true readings.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/mark.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stat-band",
+      "type": "registry:ui",
+      "title": "Stat band",
+      "description": "The instrument strip: cells divided by seam lines.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/label.json",
+        "https://starseam.astroicers.link/r/value.json",
+        "https://starseam.astroicers.link/r/status-dot.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/stat-band.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-tag",
+      "type": "registry:ui",
+      "title": "Code tag",
+      "description": "A mono identifier — a stack item, a version, a CVE.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/code-tag.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "plate-button",
+      "type": "registry:ui",
+      "title": "Plate button",
+      "description": "A cut plate you can press. Square corners, hairline edge, no fill.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "mode-toggle",
+      "type": "registry:ui",
+      "title": "Mode toggle",
+      "description": "console (夜勤) ↔ report (日勤). Two materials, not an inversion.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/mode-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "plate-input",
+      "type": "registry:ui",
+      "title": "Plate input",
+      "description": "A cut plate you can write into. Focus drives the one blue rivet on the screen.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "plate-textarea",
+      "type": "registry:ui",
+      "title": "Plate textarea",
+      "description": "The long-form plate, set on the body leading rather than the UI one.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Wires label, control, hint and error together. The error is the only place a field takes colour.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/label.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "plate-checkbox",
+      "type": "registry:ui",
+      "title": "Plate checkbox",
+      "description": "A checked box is a rivet driven home — steel, not blue.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-checkbox"
+      ]
+    },
+    {
+      "name": "plate-switch",
+      "type": "registry:ui",
+      "title": "Plate switch",
+      "description": "The thumb is a rivet sliding along its seam.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ]
+    },
+    {
+      "name": "plate-select",
+      "type": "registry:ui",
+      "title": "Plate select",
+      "description": "A list floating on the lightest cut of lacquer. Selection is marked by a rivet.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-select"
+      ]
+    },
+    {
+      "name": "plate-dialog",
+      "type": "registry:ui",
+      "title": "Plate dialog",
+      "description": "A plate lifted clear of the page. Riveted seams at the header and footer joins.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/seam.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog"
+      ]
+    },
+    {
+      "name": "plate-sheet",
+      "type": "registry:ui",
+      "title": "Plate sheet",
+      "description": "A panel drawn out from an edge — the one directional exception to stillness.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/seam.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog"
+      ]
+    },
+    {
+      "name": "plate-dropdown-menu",
+      "type": "registry:ui",
+      "title": "Plate dropdown",
+      "description": "Menu on strong lacquer. Dividers are scored hairlines, not riveted seams.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu"
+      ]
+    },
+    {
+      "name": "plate-tabs",
+      "type": "registry:ui",
+      "title": "Plate tabs",
+      "description": "Tab strip and panel are two plates that meet, so a riveted seam runs between them.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/seam.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tabs"
+      ]
+    },
+    {
+      "name": "plate-table",
+      "type": "registry:ui",
+      "title": "Plate table",
+      "description": "Rows as lames. Rivets only at the head/body join.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/plate-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

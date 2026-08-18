@@ -1,0 +1,305 @@
+/* ============================================================
+   starseam — token layer
+   Stars live where the plates meet. 星,長在甲板相接之處。
+
+   Two modes, two materials:
+     console (default) — 黒漆 lacquer. Colour is emitted light.
+     report            — paper. Colour is pigment.
+
+   Set the mode with [data-mode="console"|"report"] on <html>,
+   or omit it and prefers-color-scheme decides.
+
+   Every ruling behind these values is in DECISIONS.md.
+   ============================================================ */
+
+:root {
+  /* --- ground: 黒漆 lacquer ------------------------------- */
+  --ss-ground: #0a0a0c;
+  --ss-plate-1: #101013;
+  --ss-plate-2: #16161a;
+  --ss-plate-3: #1c1c21;
+
+  /* --- seam: where two plates meet ------------------------ */
+  --ss-seam: #1e1e22;
+  --ss-seam-strong: #2a2a30;
+
+  /* --- rivet: 銀鼠. Metal, never blue. DECISIONS 02. ------ */
+  --ss-rivet: #7e8794; /* 銀鼠 */
+  --ss-rivet-quiet: #4a4e56;
+
+  /* --- text ----------------------------------------------- */
+  --ss-text: #e2e2e6;
+  --ss-text-2: #9ba3ae;
+  --ss-text-3: #83838d;
+
+  /* --- signal: severity, never decoration. DECISIONS 01. -- */
+  --ss-live: #4f86d6; /* 瑠璃 — this thing is alive */
+  --ss-warn: #b9903f; /* 黄土 — needs attention     */
+  --ss-crit: #c7605b; /* 緋   — act now             */
+
+  /* --- type ----------------------------------------------- */
+  --ss-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ss-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --ss-sans-tc: "IBM Plex Sans TC", "Noto Sans TC", sans-serif;
+  --ss-sans-jp: "IBM Plex Sans JP", "Noto Sans JP", sans-serif;
+
+  /* --- the em grid. DECISIONS 09. ------------------------- */
+  --ss-em: 16px;
+  --ss-half: 8px;
+  --ss-track-body: 0.03em;
+  --ss-track-head: 0.12em;
+  --ss-track-label: 0.2em;
+  --ss-leading-body: 1.95;
+  --ss-leading-tight: 1.5;
+
+  /* --- geometry: plates are cut, not moulded -------------- */
+  --ss-radius: 2px;
+  --ss-hairline: 1px;
+  --ss-rivet-size: 3.5px;
+  --ss-rivet-pitch: 9px;
+
+  /* --- motion: stillness is the default. DECISIONS 08. ---- */
+  --ss-dur: 160ms;
+  --ss-ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+/* --- report mode: paper ---------------------------------- */
+:root[data-mode="report"] {
+  --ss-ground: #ededef;
+  --ss-plate-1: #f4f4f6;
+  --ss-plate-2: #fafafb;
+  --ss-plate-3: #ffffff;
+
+  --ss-seam: #dcdce0;
+  --ss-seam-strong: #c4c4cb;
+
+  --ss-rivet: #6b7280;
+  --ss-rivet-quiet: #a8adb6;
+
+  --ss-text: #16161a;
+  --ss-text-2: #5e626b;
+  --ss-text-3: #6b6b73;
+
+  --ss-live: #21509e;
+  --ss-warn: #84600f;
+  --ss-crit: #9c3b36;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-mode]) {
+    --ss-ground: #ededef;
+    --ss-plate-1: #f4f4f6;
+    --ss-plate-2: #fafafb;
+    --ss-plate-3: #ffffff;
+    --ss-seam: #dcdce0;
+    --ss-seam-strong: #c4c4cb;
+    --ss-rivet: #6b7280;
+    --ss-rivet-quiet: #a8adb6;
+    --ss-text: #16161a;
+    --ss-text-2: #5e626b;
+    --ss-text-3: #6b6b73;
+    --ss-live: #21509e;
+    --ss-warn: #84600f;
+    --ss-crit: #9c3b36;
+  }
+}
+
+/* --- Tailwind v4 bridge ---------------------------------- */
+@theme inline {
+  --color-ground: var(--ss-ground);
+  --color-plate-1: var(--ss-plate-1);
+  --color-plate-2: var(--ss-plate-2);
+  --color-plate-3: var(--ss-plate-3);
+  --color-seam: var(--ss-seam);
+  --color-seam-strong: var(--ss-seam-strong);
+  --color-rivet: var(--ss-rivet);
+  --color-rivet-quiet: var(--ss-rivet-quiet);
+  --color-ink: var(--ss-text);
+  --color-ink-2: var(--ss-text-2);
+  --color-ink-3: var(--ss-text-3);
+  --color-live: var(--ss-live);
+  --color-warn: var(--ss-warn);
+  --color-crit: var(--ss-crit);
+
+  --font-mono: var(--ss-mono);
+  --font-sans: var(--ss-sans-tc);
+  --font-jp: var(--ss-sans-jp);
+
+  --radius-plate: var(--ss-radius);
+
+  --tracking-label: var(--ss-track-label);
+  --tracking-head: var(--ss-track-head);
+  --tracking-body: var(--ss-track-body);
+}
+
+/* --- base ------------------------------------------------ */
+body {
+  background: var(--ss-ground);
+  color: var(--ss-text);
+  font-family: var(--ss-sans-tc);
+  font-weight: 300;
+  letter-spacing: var(--ss-track-body);
+  line-height: var(--ss-leading-body);
+}
+
+/* Han unification: 骨 直 海 令 differ between TC and JP.
+   Declare per language or one of them is wrong. DECISIONS 06. */
+:lang(zh-Hant),
+:lang(zh-TW) {
+  font-family: var(--ss-sans-tc);
+}
+:lang(ja) {
+  font-family: var(--ss-sans-jp);
+}
+:lang(en) {
+  font-family: var(--ss-sans);
+}
+
+/* ============================================================
+   CJK typography
+   Zero-specificity :where() so a consumer can override with any
+   single selector. Newer properties degrade silently.
+   ============================================================ */
+
+:where(h1, h2, h3, h4) {
+  text-wrap: balance;
+}
+
+:where(p, li, dd, blockquote) {
+  text-wrap: pretty;
+}
+
+/* Japanese breaks at phrase boundaries rather than mid-word. */
+:lang(ja) {
+  word-break: auto-phrase;
+  line-break: strict;
+}
+
+/* Traditional Chinese: strict line-break rules, and trim the
+   half-em that opening full-width brackets carry at line start. */
+:lang(zh-Hant),
+:lang(zh-TW) {
+  line-break: strict;
+  text-spacing-trim: trim-start;
+}
+
+/* The quarter-em gap between CJK and adjacent Latin or digits —
+   the space you would set by hand in metal type. */
+:lang(zh-Hant),
+:lang(zh-TW),
+:lang(ja) {
+  text-autospace: normal;
+}
+
+/* ============================================================
+   Motion lives here, not in components.
+
+   DECISIONS 08 makes stillness a system ruling, so the entry and
+   exit of every floating layer is defined once, keyed off the
+   data-slot names the components already set. A component cannot
+   invent its own entrance.
+   ============================================================ */
+
+@keyframes ss-veil-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes ss-veil-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes ss-lift-in {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ss-lift-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(2px); }
+}
+
+[data-slot$="-overlay"][data-state="open"] {
+  animation: ss-veil-in var(--ss-dur) var(--ss-ease);
+}
+[data-slot$="-overlay"][data-state="closed"] {
+  animation: ss-veil-out var(--ss-dur) var(--ss-ease);
+}
+
+[data-slot$="-content"][data-state="open"],
+[data-slot$="-panel"][data-state="open"] {
+  animation: ss-lift-in var(--ss-dur) var(--ss-ease);
+}
+[data-slot$="-content"][data-state="closed"],
+[data-slot$="-panel"][data-state="closed"] {
+  animation: ss-lift-out var(--ss-dur) var(--ss-ease);
+}
+
+/* A sheet slides in from its edge — the one exception, because a panel
+   that fades in place reads as a dialog, not as something drawn out. */
+[data-slot="sheet-content"][data-side="right"][data-state="open"] {
+  animation: ss-sheet-right-in var(--ss-dur) var(--ss-ease);
+}
+[data-slot="sheet-content"][data-side="right"][data-state="closed"] {
+  animation: ss-sheet-right-out var(--ss-dur) var(--ss-ease);
+}
+[data-slot="sheet-content"][data-side="bottom"][data-state="open"] {
+  animation: ss-sheet-bottom-in var(--ss-dur) var(--ss-ease);
+}
+[data-slot="sheet-content"][data-side="bottom"][data-state="closed"] {
+  animation: ss-sheet-bottom-out var(--ss-dur) var(--ss-ease);
+}
+
+@keyframes ss-sheet-right-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes ss-sheet-right-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+@keyframes ss-sheet-bottom-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes ss-sheet-bottom-out {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+/* The scrim behind a floating layer. Not a blur — DECISIONS 04. */
+:root {
+  --ss-scrim: rgb(0 0 0 / 0.62);
+}
+:root[data-mode="report"] {
+  --ss-scrim: rgb(22 22 26 / 0.34);
+}
+
+/* --- the only permitted loop in the system. DECISIONS 08. - */
+@keyframes ss-crit-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* --- rivets light in sequence, once, on load ------------- */
+@keyframes ss-rivet-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
