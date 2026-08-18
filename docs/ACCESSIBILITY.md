@@ -3,7 +3,7 @@
 `starseam` 的目標是 **WCAG 2.2 AA**。這份文件記錄實際量到的數字、方法,以及**記錄在案的例外**。
 數字是算出來的,不是宣稱的——重算方式見文末。
 
-最後稽核:v0.2.0(2026-08-19,含真實瀏覽器實測,方法見「真實瀏覽器實測」一節)
+最後稽核:v0.3.0(2026-08-19,含真實瀏覽器實測,方法見「真實瀏覽器實測」一節)
 
 ---
 
@@ -62,7 +62,8 @@ Firefox 與 Safari 的支援狀態未實測,仍視為漸進增強。
 
 ## 真實瀏覽器實測
 
-v0.2.0 起,以 Playwright 驅動 Chromium 151 對匯出後的靜態站實測(2026-08-19):
+v0.2.0 起,以 Playwright 驅動 Chromium 151 對匯出後的靜態站實測
+(2026-08-19;v0.3.0 的全目錄展示頁與雙語重構後全項重跑,兩個 locale 皆通過):
 
 - **200% 縮放**(等效 640px viewport):`scrollWidth` = `clientWidth` = 640,無橫向溢出。
 - **320px 回流**(WCAG 1.4.10):`scrollWidth` = `clientWidth` = 320,無橫向捲軸、無內容互蓋。
@@ -79,15 +80,22 @@ v0.2.0 起,以 Playwright 驅動 Chromium 151 對匯出後的靜態站實測(202
 在兩種模式下對底面皆達 3:1 以上。焦點順序即 DOM 順序;`lames` 的視覺交疊
 以 `margin-top` 負值達成,**不改變 DOM 順序**,因此交疊不會讓焦點跳來跳去。
 
-v0.2.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一輪,結果相同):
+v0.3.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一輪,結果相同):
 
 - **dialog / sheet**:Enter 開啟、初始焦點落在浮層內、Tab 循環不逃出(焦點陷阱)、
   Esc 關閉、關閉後焦點回到觸發按鈕。
 - **dropdown / select**:Enter 開啟、方向鍵在項目間移動、Esc 關閉、焦點回到觸發元素。
 - **tabs**:方向鍵移動並即時啟用、`Home`/`End` 跳至首末、方向鍵在兩端循環、
   Tab 離開 tablist(roving tabindex,整個 tablist 只佔一個 Tab 停留點)。
-- **Tab 順序**:整頁 18 個可聚焦元素,實走順序與 DOM 順序一致;
+- **Tab 順序**:全目錄展示頁 36 個可聚焦元素,實走順序與 DOM 順序一致;
   無任何正值 `tabindex`;`lames` 交疊區內無可聚焦元素,不構成跳躍點。
+- **mode-switch**(v0.3.0):`radiogroup` / `radio` 語意(Radix ToggleGroup single),
+  整個群組佔一個 Tab 停留點,方向鍵在自動/夜勤/日勤間移動、Enter/Space 選取;
+  點擊已選中段不會清空選取;「自動」清除 `localStorage` 並回到跟隨系統偏好。
+  選中標記為鉚釘 + 填色,不依賴顏色單獨傳達(裁決 10)。
+- **語言切換**(v0.3.0):純連結(`/` 繁中、`/en` 英文),各 locale 是獨立
+  root layout,`<html lang>` 各自正確;現行 locale 標 `aria-current="page"` +
+  鉚釘;切換為整頁載入,模式偏好經 localStorage 跨 locale 保持。
 
 ---
 
