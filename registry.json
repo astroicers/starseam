@@ -207,6 +207,23 @@
       ]
     },
     {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code block",
+      "description": "A plate that holds source code: filename label, copy, a folding seam. Ink shades only — colour is severity, never syntax.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json",
+        "https://starseam.astroicers.link/r/seam.json",
+        "https://starseam.astroicers.link/r/copy-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "copy-button",
       "type": "registry:ui",
       "title": "Copy button",
@@ -907,6 +924,25 @@
       ],
       "dependencies": [
         "input-otp"
+      ]
+    },
+    {
+      "name": "highlight",
+      "type": "registry:lib",
+      "title": "Highlight",
+      "description": "Server-side ink-layer highlighting: shiki with a shades-only theme wired to the mode-switching CSS variables.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/lib/highlight.ts",
+          "type": "registry:lib",
+          "target": "lib/highlight.ts"
+        }
+      ],
+      "dependencies": [
+        "shiki"
       ]
     }
   ]

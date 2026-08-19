@@ -38,7 +38,7 @@ export const zh: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "50" },
+    { label: "ITEMS", value: "51" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -67,7 +67,7 @@ export const zh: Dictionary = {
   componentIndex: {
     label: "INDEX",
     title: "索引",
-    intro: "五十件原件,按分區排列。點名字直達那一片板。",
+    intro: "五十一件原件,按分區排列。點名字直達那一片板。",
   },
   palette: {
     label: "PALETTE",
@@ -407,6 +407,12 @@ export const zh: Dictionary = {
       current: "南門二",
     },
     pagination: { note: "頁碼是純連結;當前頁是一顆鉚釘加全強度文字,不是藍膠囊。" },
+    codeBlock: {
+      note: "盛著原始碼的板:檔名列附複製鈕,長碼在接縫處摺疊。高亮只有墨的濃淡——顏色是嚴重度,不是語法。",
+      filename: "listening-run.ts",
+      expand: "展開",
+      collapse: "收合",
+    },
     scrollArea: {
       note: "帶儀表捲軸的視窗:髮絲槽、鋼滑塊,沒有浮動膠囊。",
       lines: [

@@ -37,7 +37,7 @@ export const ja: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "50" },
+    { label: "ITEMS", value: "51" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -65,7 +65,7 @@ export const ja: Dictionary = {
   },
   componentIndex: {
     label: "INDEX",
-    intro: "五十の部品を、区分ごとに並べた。名前を押せば、その板へまっすぐ届く。",
+    intro: "五十一の部品を、区分ごとに並べた。名前を押せば、その板へまっすぐ届く。",
     title: "索引",
   },
   palette: {
@@ -406,6 +406,12 @@ export const ja: Dictionary = {
       current: "南門二",
     },
     pagination: { note: "ページ番号はただのリンク。現在頁は鋲一粒と全強度の文字——青い錠剤ではない。" },
+    codeBlock: {
+      note: "ソースコードを載せる板:ファイル名の行にコピー鈕、長いコードは矧ぎ目で畳む。ハイライトは墨の濃淡のみ——色は重大度であって、構文ではない。",
+      filename: "listening-run.ts",
+      expand: "展開",
+      collapse: "畳む",
+    },
     scrollArea: {
       note: "計器のスクロールバーを持つ窓:毛筋の溝、鋼のつまみ。浮かぶ錠剤はない。",
       lines: [

@@ -120,6 +120,10 @@ v0.3.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一�
   - `plate-calendar`:日期格為按鈕、選取標 `aria-selected`
   - `plate-input-otp`:實體 input 承接輸入(`autocomplete="one-time-code"`),
     格子為視覺呈現;游標為靜止短棒(閃爍是循環,循環只屬於 crit)
+  - `code-block`(v0.4.0):展開/收合為 `aria-expanded` 按鈕,收合狀態下
+    複製鈕仍複製**完整**原始碼(實測 18 行收合為 12 行後複製得 19 行);
+    墨色高亮不引入色相,僅以 text/text-2/text-3 濃淡分層(裁決 01 釐清),
+    兩模式下對比即前表數字
   - `progress` 無不定態、`skeleton` 無 shimmer——同一條裁決 08 的推論,
     已記入 DECISIONS 被否決的方向
 

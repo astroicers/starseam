@@ -242,6 +242,7 @@ export interface Dictionary {
     breadcrumb: { note: string; segments: string[]; current: string };
     pagination: { note: string };
     scrollArea: { note: string; lines: string[] };
+    codeBlock: { note: string; filename: string; expand: string; collapse: string };
   };
   decisions: SectionHead & {
     rulings: [string, string, string][];

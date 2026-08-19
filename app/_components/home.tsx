@@ -151,6 +151,8 @@ import {
   PlateInputOTPSeparator,
 } from "@/components/ui/plate-input-otp";
 import { ButtonGroup } from "@/components/ui/button-group";
+import { CodeBlock } from "@/components/ui/code-block";
+import { highlight } from "@/registry/starseam/lib/highlight";
 import { ToastDemo } from "./toast-demo";
 import { Specimen } from "./specimen";
 import { SiteHeader } from "./site-header";
@@ -187,6 +189,34 @@ function themeHex(): { light: Record<string, string>; dark: Record<string, strin
 }
 
 export type Locale = "zh-Hant" | "en" | "ja";
+
+/** The code-block specimen's source — one listening run, fully typed. */
+const SAMPLE_CODE = `import { schedule } from "@/lib/runs";
+
+/** One listening run, aimed at our nearest neighbour. */
+export const alphaCen = schedule({
+  target: "Alpha Centauri",
+  distanceLy: 4.22,
+  mode: "directed",
+  band: [1420.2, 1420.6], // MHz — the hydrogen line
+  cadence: "nightly",
+  window: { start: "22:00", end: "03:00" },
+  transmit: false, // the first lesson of the dark forest
+  onEcho: "record", // never "reply"
+});
+
+export function isStableEra(forecast: Forecast): boolean {
+  // Three suns, one honest guess.
+  return forecast.syzygyProbability < 0.01;
+}
+`;
+
+const NAMESPACE_JSON = `{
+  "registries": {
+    "@starseam": "https://starseam.astroicers.link/r/{name}.json"
+  }
+}
+`;
 
 /** The catalogue's own star chart: which piece sits in which section. */
 const INDEX_GROUPS: { id: string; names: string[] }[] = [
@@ -249,6 +279,7 @@ const INDEX_GROUPS: { id: string; names: string[] }[] = [
     names: [
       "plate-tabs",
       "plate-table",
+      "code-block",
       "plate-accordion",
       "plate-collapsible",
       "breadcrumb",
@@ -282,8 +313,12 @@ function SectionHeading({ head, id }: { head: SectionHead; id: string }) {
   );
 }
 
-export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
+export async function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const d = dict;
+  const [sampleHtml, namespaceHtml] = await Promise.all([
+    highlight(SAMPLE_CODE, "ts"),
+    highlight(NAMESPACE_JSON, "json"),
+  ]);
   const commandGroups = [
     {
       label: d.header.navAria,
@@ -1029,6 +1064,18 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
           </Tabs>
         </Specimen>
 
+        <Specimen names={["code-block"]} note={d.structure.codeBlock.note}>
+          <CodeBlock
+            code={SAMPLE_CODE}
+            filename={d.structure.codeBlock.filename}
+            lang="TS"
+            lineNumbers
+            collapsedLines={12}
+            highlightedHtml={sampleHtml}
+            labels={{ expand: d.structure.codeBlock.expand, collapse: d.structure.codeBlock.collapse }}
+          />
+        </Specimen>
+
         <Specimen names={["plate-accordion"]} note={d.structure.accordion.note}>
           <PlateAccordion type="single" collapsible className="max-w-[560px]">
             {d.structure.accordion.items.map((item, i) => (
@@ -1150,16 +1197,22 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
         <p className="mt-6 max-w-[680px] text-[15.5px] leading-[1.9] text-[var(--ss-text-2)]">
           {d.install.namespaceNote}
         </p>
+        <div className="mt-4">
+          <CodeBlock
+            code={NAMESPACE_JSON}
+            filename="components.json"
+            lang="JSON"
+            collapsedLines={0}
+            highlightedHtml={namespaceHtml}
+          />
+        </div>
         <Plate elevation="flush" className="mt-4">
-          <div className="flex items-start justify-between gap-4 overflow-x-auto">
-            <code className="block select-all font-[family-name:var(--ss-mono)] text-[13px] leading-[1.9] whitespace-pre text-[var(--ss-text-2)]">
-              {`"registries": {
-  "@starseam": "https://starseam.astroicers.link/r/{name}.json"
-}
-
-npx shadcn@latest add @starseam/plate-dialog`}
+          <div className="flex items-start justify-between gap-4">
+            <code className="min-w-0 select-all break-all font-[family-name:var(--ss-mono)] text-[13px] leading-[1.8]">
+              <span className="text-[var(--ss-text-3)]">npx shadcn@latest add @starseam/</span>
+              <span className="text-[var(--ss-text)]">plate-dialog</span>
             </code>
-            <CopyButton value={'"registries": { "@starseam": "https://starseam.astroicers.link/r/{name}.json" }'} />
+            <CopyButton value="npx shadcn@latest add @starseam/plate-dialog" className="mt-[3px] shrink-0" />
           </div>
         </Plate>
       </section>

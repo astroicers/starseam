@@ -41,7 +41,7 @@ export const en: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "50" },
+    { label: "ITEMS", value: "51" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -70,7 +70,7 @@ export const en: Dictionary = {
   componentIndex: {
     label: "INDEX",
     title: "Index",
-    intro: "Fifty pieces, arranged by section. A name takes you straight to its plate.",
+    intro: "Fifty-one pieces, arranged by section. A name takes you straight to its plate.",
   },
   palette: {
     label: "PALETTE",
@@ -417,6 +417,12 @@ export const en: Dictionary = {
       current: "Alpha Centauri",
     },
     pagination: { note: "Plain links; the current page is a rivet and full-strength text, not a blue pill." },
+    codeBlock: {
+      note: "A plate that holds source code: filename row with a copy button, long code folding at a seam. Highlighting is shades of ink only — colour is severity, not syntax.",
+      filename: "listening-run.ts",
+      expand: "Expand",
+      collapse: "Collapse",
+    },
     scrollArea: {
       note: "A viewport with an instrument scrollbar: hairline channel, steel thumb, no floating pill.",
       lines: [
