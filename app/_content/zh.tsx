@@ -3,9 +3,9 @@ import type { Dictionary } from "./types";
 
 export const zh: Dictionary = {
   meta: {
-    title: "starseam — 星,長在甲板相接之處",
+    title: "starseam — 璀璨的星光,誕生於板塊交會的激盪之處",
     description:
-      "星兜為型:板疊板、以星鉚之。A shadcn registry on a lacquer ground, with structural rivets and first-class Traditional Chinese typography.",
+      "星兜為型:璀璨的星光,誕生於板塊交會的激盪之處。A shadcn registry on a lacquer ground, with structural rivets and first-class Traditional Chinese typography.",
   },
   header: {
     nav: [
@@ -33,7 +33,7 @@ export const zh: Dictionary = {
           那些鉚釘的名字就叫「星」
         </span>
         。古人望向鉢頂,見密佈的鉚釘宛如繁星滿天;於是兜上的星與天上的星,從此是同一個字。
-        板疊板、以星鉚之,本身就是縱深防禦。
+        大地在碰撞中重疊,而星空是它不朽的封印,這是一場與時間對抗的漫長防守。
       </>
     ),
   },

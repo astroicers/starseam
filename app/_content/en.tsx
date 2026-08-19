@@ -3,9 +3,9 @@ import type { Dictionary } from "./types";
 
 export const en: Dictionary = {
   meta: {
-    title: "starseam — stars live where the plates meet",
+    title: "starseam — starlight born where the plates collide",
     description:
-      "Modelled on the hoshi-kabuto: plate over plate, riveted with stars. A shadcn registry on a lacquer ground, with structural rivets and first-class CJK typography.",
+      "Modelled on the hoshi-kabuto: Brilliant starlight, born where the plates collide. A shadcn registry on a lacquer ground, with structural rivets and first-class CJK typography.",
   },
   header: {
     nav: [
@@ -36,8 +36,7 @@ export const en: Dictionary = {
         </span>
         , stars. Look down at the bowl and the field of rivets reads as a night
         sky — the star on the helmet and the star in the heavens have shared
-        one word ever since. Plate over plate, riveted with stars: defence in
-        depth by construction.
+        one word ever since. The earth folds over itself in collision, and the star-field is its undying seal — a long defence waged against time.
       </>
     ),
   },

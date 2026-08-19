@@ -1,11 +1,11 @@
 # starseam
 
-> Stars live where the plates meet. — 星,長在甲板相接之處。
+> Brilliant starlight, born where the plates collide. — 璀璨的星光,誕生於板塊交會的激盪之處。
 
 日本頭盔有一型叫**星兜**。鉢由數十片鐵板拼成,固定板片的鉚釘刻意不磨平、突出在外——
 那些鉚釘的名字就叫「星」。六十二間星兜,六十二片板,上百顆星。
 
-板疊板、以星鉚之,本身就是縱深防禦。
+大地在碰撞中重疊,而星空是它不朽的封印,這是一場與時間對抗的漫長防守。
 
 `starseam` 是一套 [shadcn](https://ui.shadcn.com) registry:黒漆為地,鉚釘承重,
 繁體中文與日文分語系排版。沒有陰影、沒有毛玻璃、沒有輝光——**深度是實體的**。

@@ -3,9 +3,9 @@ import type { Dictionary } from "./types";
 
 export const ja: Dictionary = {
   meta: {
-    title: "starseam — 星は、板の合わせ目に宿る",
+    title: "starseam — きらめく星々は、板のぶつかり合う場所に生まれる",
     description:
-      "星兜を型とする:板を重ね、星で鋲留めする。漆黒の地に構造の鋲、CJK 組版を第一級で扱う shadcn レジストリ。",
+      "星兜を型とする:大地は衝突のなかで折り重なり、星空はその不朽の封印。漆黒の地に構造の鋲、CJK 組版を第一級で扱う shadcn レジストリ。",
   },
   header: {
     nav: [
@@ -32,7 +32,7 @@ export const ja: Dictionary = {
         あえて磨き残して点として立てる——
         <span className="text-[var(--ss-text)]">その鋲の名を「星」という</span>。
         鉢を覆う無数の鋲を、昔の人は満天の星に見立てた。兜の星と天の星は、
-        それ以来ひとつの字である。板に板を重ね、星で留める——それ自体が縦深防御である。
+        それ以来ひとつの字である。大地は衝突のなかで折り重なり、星空はその不朽の封印——時間に抗う、長い防衛戦である。
       </>
     ),
   },

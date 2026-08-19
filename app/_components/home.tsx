@@ -1167,7 +1167,7 @@ npx shadcn@latest add @starseam/plate-dialog`}
       <footer className="mt-16">
         <Seam />
         <p className="pt-6 font-[family-name:var(--ss-mono)] text-[12px] tracking-[0.1em] text-[var(--ss-text-3)]">
-          Stars live where the plates meet. — 星,長在甲板相接之處。
+          Brilliant starlight, born where the plates collide. — 璀璨的星光,誕生於板塊交會的激盪之處。
         </p>
         <p className="mt-2 text-[12.5px] text-[var(--ss-text-3)]">{d.footer.license}</p>
       </footer>

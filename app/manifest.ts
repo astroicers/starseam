@@ -12,7 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "starseam",
     short_name: "starseam",
     description:
-      "Stars live where the plates meet. A shadcn registry on a lacquer ground.",
+      "Brilliant starlight, born where the plates collide. A shadcn registry on a lacquer ground.",
     start_url: "/",
     display: "standalone",
     background_color: "#0a0a0c",
