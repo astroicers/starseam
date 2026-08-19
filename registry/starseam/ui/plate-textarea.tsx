@@ -20,7 +20,7 @@ function PlateTextarea({ className, invalid, ...props }: PlateTextareaProps) {
         "hover:border-[var(--ss-rivet-quiet)]",
         "focus:outline-none focus-visible:border-[var(--ss-live)]",
         "disabled:cursor-not-allowed disabled:opacity-40",
-        invalid ? "border-[var(--ss-crit)]" : "border-[var(--ss-seam-strong)]",
+        "border-[var(--ss-seam-strong)] aria-[invalid=true]:border-[var(--ss-crit)]",
         className
       )}
       {...props}

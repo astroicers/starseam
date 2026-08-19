@@ -152,6 +152,8 @@ import {
 } from "@/components/ui/plate-input-otp";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { CodeBlock } from "@/components/ui/code-block";
+import { Ledger, LedgerRow } from "@/components/ui/ledger";
+import { Glyph, GLYPH_NAMES } from "@/components/ui/glyph";
 import { highlight } from "@/registry/starseam/lib/highlight";
 import { ToastDemo } from "./toast-demo";
 import { Specimen } from "./specimen";
@@ -1088,6 +1090,29 @@ export async function Home({ dict, locale }: { dict: Dictionary; locale: Locale 
               {d.structure.prose.bodyC}
             </p>
             <blockquote>{d.structure.prose.quote}</blockquote>
+          </div>
+        </Specimen>
+
+        <Specimen names={["ledger"]} note={d.structure.ledger.note}>
+          <Ledger label={d.structure.ledger.label} className="max-w-[560px]">
+            {d.structure.ledger.rows.map((r) => (
+              <LedgerRow key={r.text} label={r.label} href="#ledger">
+                {r.text}
+              </LedgerRow>
+            ))}
+          </Ledger>
+        </Specimen>
+
+        <Specimen names={["glyph"]} note={d.structure.glyph.note}>
+          <div className="flex max-w-[600px] flex-wrap gap-x-7 gap-y-5 text-[var(--ss-text-2)]">
+            {GLYPH_NAMES.map((n) => (
+              <span key={n} className="flex w-[56px] flex-col items-center gap-2">
+                <Glyph name={n} className="text-[20px]" />
+                <span className="font-[family-name:var(--ss-mono)] text-[9px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)]">
+                  {n}
+                </span>
+              </span>
+            ))}
           </div>
         </Specimen>
 

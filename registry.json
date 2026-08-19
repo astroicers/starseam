@@ -944,6 +944,36 @@
       "dependencies": [
         "shiki"
       ]
+    },
+    {
+      "name": "ledger",
+      "type": "registry:ui",
+      "title": "Ledger",
+      "description": "An instrument list: labelled entries on one plate, each row cut from the next by a seam. The archetype is a logbook page.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/ledger.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "glyph",
+      "type": "registry:ui",
+      "title": "Glyph",
+      "description": "The glyph set: hairline instrument marks on the 24-unit grid — cut, not moulded. Monochrome, currentColor, never a severity.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/glyph.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

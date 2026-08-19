@@ -433,6 +433,18 @@ export const en: Dictionary = {
       bodyC: ", so it is marked with a rivet, never lapis.",
       quote: "A long text is a report — even read on the night-shift console.",
     },
+    ledger: {
+      note: "An instrument list: entries on one plate, each row cut from the next by a seam. The archetype is a duty logbook page — archives, recent, related reading.",
+      label: "2026 · Duty log",
+      rows: [
+        { label: "2026-06-30", text: "Listening run: Alpha Centauri" },
+        { label: "2026-06-22", text: "Plate log: sixty-two ken" },
+        { label: "2026-06-14", text: "First lesson of the dark forest: never reply" },
+      ],
+    },
+    glyph: {
+      note: "The glyph set: hairline instrument marks on the 24-unit grid, butt caps — cut, not moulded. Monochrome currentColor; a glyph never carries severity by itself.",
+    },
     scrollArea: {
       note: "A viewport with an instrument scrollbar: hairline channel, steel thumb, no floating pill.",
       lines: [

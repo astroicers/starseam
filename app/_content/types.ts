@@ -253,6 +253,12 @@ export interface Dictionary {
       bodyC: string;
       quote: string;
     };
+    ledger: {
+      note: string;
+      label: string;
+      rows: { label: string; text: string }[];
+    };
+    glyph: { note: string };
   };
   decisions: SectionHead & {
     rulings: [string, string, string][];

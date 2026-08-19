@@ -34,9 +34,11 @@ function Field({ label, hint, error, children, className, ...props }: FieldProps
   const control = React.Children.map(children, (child) => {
     if (!React.isValidElement(child)) return child;
     const own = child.props as Record<string, unknown>;
+    // Injected as aria-invalid, never as a bare `invalid` prop: children may
+    // be third-party roots (Radix Select) that spread unknown props onto DOM.
     return React.cloneElement(child as React.ReactElement<Record<string, unknown>>, {
       id: own.id ?? id,
-      invalid: own.invalid ?? invalid,
+      "aria-invalid": own["aria-invalid"] ?? (invalid || undefined),
       "aria-describedby": own["aria-describedby"] ?? describedBy,
     });
   });
