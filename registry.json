@@ -961,6 +961,21 @@
       ]
     },
     {
+      "name": "rail",
+      "type": "registry:ui",
+      "title": "Rail",
+      "description": "A constellation of anchors: one vertical seam, one star per entry, the current one lit via aria-current. Structure only — docking and chrome belong to the consumer.",
+      "registryDependencies": [
+        "https://starseam.astroicers.link/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/starseam/ui/rail.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "glyph",
       "type": "registry:ui",
       "title": "Glyph",
