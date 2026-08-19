@@ -12,7 +12,7 @@
 
 展示站:**[starseam.astroicers.link](https://starseam.astroicers.link)**
 ([EN](https://starseam.astroicers.link/en) · [日本語](https://starseam.astroicers.link/ja))——
-五十件元件全數實際渲染,各附安裝指令與複製鈕;按 `Ctrl K` 直達任何一件,
+五十一件元件全數實際渲染,各附安裝指令與複製鈕;按 `Ctrl K` 直達任何一件,
 可安裝為 PWA。demo 的內容是一座指向半人馬座 α 的監聽站。
 
 ![starseam — console](docs/preview-console.svg)
@@ -48,7 +48,7 @@ npx shadcn@latest add @starseam/plate @starseam/stat-band
 
 ---
 
-## 元件(50 件)
+## 元件(51 件)
 
 shadcn/ui 有的品項,凡是過得了裁決的,這裡都有——以星兜語彙重製。
 與裁決衝突的(form 的 render prop、carousel 的滑動、一切循環的等待動畫)
@@ -60,9 +60,12 @@ shadcn/ui 有的品項,凡是過得了裁決的,這裡都有——以星兜語�
 | 儀表 | `mark` `label` `value` `status-dot` `stat-band` `code-tag` `mode-switch` `badge` `kbd` `avatar` `progress` |
 | 控制項 | `plate-button` `button-group` `plate-checkbox` `plate-switch` `copy-button` `plate-radio-group` `plate-slider` `plate-toggle` `plate-combobox` `plate-calendar` `plate-date-picker` `plate-input-otp` `field` `plate-input` `plate-select` `plate-textarea` |
 | 浮層 | `plate-dialog` `plate-sheet` `plate-dropdown-menu` `plate-alert-dialog` `plate-popover` `plate-tooltip` `plate-hover-card` `plate-context-menu` `plate-menubar` `plate-command` `plate-toast` |
-| 結構 | `plate-tabs` `plate-table` `plate-accordion` `plate-collapsible` `breadcrumb` `pagination` `scroll-area` |
+| 結構 | `plate-tabs` `plate-table` `code-block` `plate-accordion` `plate-collapsible` `breadcrumb` `pagination` `scroll-area` |
 
-`theme` 一項另計。命名:可互動的板件冠 `plate-`,結構性的東西用素名。
+`theme` 與 `highlight`(registry:lib)另計。命名:可互動的板件冠 `plate-`,結構性的東西用素名。
+
+`code-block` 的語法高亮只有墨的濃淡——彩色的關鍵字正是「顏色作為裝飾」,
+在這裡是違憲的(裁決 01)。`highlight` 這支 lib 用 shiki 出墨色分層,隨夜勤/日勤自動換。
 每一件的設計注記與多狀態展示都在展示站上,選取一律銀鼠、嚴重度一律附文字。
 
 ---
@@ -162,10 +165,13 @@ node scripts/audit-contrast.mjs
 
 ## 現況與落差
 
-v0.4.0:五十件元件、三語展示站(繁中 / EN / 日)、雙材質模式、可安裝 PWA、
-站內 `Ctrl K` 指令面板。shadcn/ui 的品項覆蓋完畢;與裁決衝突者記錄在案。
+v0.4.0:五十一件元件、三語展示站(繁中 / EN / 日)、雙材質模式、可安裝 PWA、
+站內 `Ctrl K` 指令面板與左緣星座 rail(所在分區的星亮起)。
+shadcn/ui 的品項覆蓋完畢;與裁決衝突者記錄在案。
+官方 registry 目錄收錄申請中:[shadcn-ui/ui#11547](https://github.com/shadcn-ui/ui/pull/11547),
+合併後 `npx shadcn@latest add @starseam/<name>` 免設定直接可用。
 
-**下一步**:chart(自繪 SVG sparkline,監控室語彙)、`empty` 空狀態板。
+**下一步**:chart(自繪 SVG sparkline,監聽站語彙)、`empty` 空狀態板。
 
 **已知落差**:未經螢幕報讀器實測;live region 規範未定;
 CJK 排版屬性已在 Chromium 與 Firefox 實測,Safari 未驗證。

@@ -145,13 +145,13 @@ function sheet(mode) {
 
   g += mark(88, 84, 104, t);
   g += txt(168, 76, "starseam", t["ss-text"], 40, { mono: true, weight: 600 });
-  g += txt(170, 104, "STARS LIVE WHERE THE PLATES MEET", t["ss-text-3"], 11, { mono: true, track: 3.4 });
+  g += txt(170, 104, "BRILLIANT STARLIGHT, BORN WHERE THE PLATES COLLIDE", t["ss-text-3"], 10, { mono: true, track: 2.2 });
   g += txt(W - 40, 40, mode === "console" ? "夜勤 / CONSOLE" : "日勤 / REPORT", t["ss-text-3"], 11, { mono: true, track: 2.6, anchor: "end" });
 
   g += seam(152, 0, W, t);
 
   // instrument band
-  const cells = [["ITEMS", "11", null], ["MODES", "2", null], ["SHADOWS", "0", null], ["STATUS", "LIVE", "ss-live"]];
+  const cells = [["ITEMS", "51", null], ["MODES", "2", null], ["SHADOWS", "0", null], ["STATUS", "LIVE", "ss-live"]];
   cells.forEach(([k, v, state], i) => {
     const x = (W / 4) * i + 40;
     if (i) g += `<line x1="${(W / 4) * i}" y1="152" x2="${(W / 4) * i}" y2="216" stroke="${t["ss-seam"]}"/>`;
@@ -163,9 +163,9 @@ function sheet(mode) {
 
   // plate specimens
   const plates = [
-    ["CyPulse", "外部攻擊面管理", "ss-plate-3", "LIVE", "ss-live"],
-    ["Merak", "零信任平台", "ss-plate-2", "SHIPPED", null],
-    ["ASP", "AI-SOP-Protocol", "ss-plate-1", "v5", null],
+    ["鉢", "頂上的碗 · 星沿每一道接縫", "ss-plate-3", "展示中", "ss-live"],
+    ["眼庇", "擋正午的光,也擋迎面的刃", "ss-plate-2", "MABISASHI", null],
+    ["錣", "五段板以縅緒連綴", "ss-plate-1", "5 LAMES", null],
   ];
   plates.forEach(([name, desc, fill, tag, state], i) => {
     const y = 258 + i * 74;
