@@ -43,8 +43,11 @@ export function Specimen({
           const cmd = `npx shadcn@latest add ${REGISTRY_BASE}/${n}.json`;
           return (
             <div key={n} className="flex items-start justify-between gap-4 py-[8px]">
-              <code className="min-w-0 select-all break-all font-[family-name:var(--ss-mono)] text-[13px] leading-[1.8] text-[var(--ss-text-2)]">
-                {cmd}
+              {/* The constant prefix recedes; the item name is the reading. */}
+              <code className="min-w-0 select-all break-all font-[family-name:var(--ss-mono)] text-[13px] leading-[1.8]">
+                <span className="text-[var(--ss-text-3)]">{`npx shadcn@latest add ${REGISTRY_BASE}/`}</span>
+                <span className="text-[var(--ss-text)]">{n}</span>
+                <span className="text-[var(--ss-text-3)]">.json</span>
               </code>
               <CopyButton value={cmd} className="mt-[3px] shrink-0" />
             </div>

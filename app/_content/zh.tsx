@@ -127,13 +127,13 @@ export const zh: Dictionary = {
     label: "INSTRUMENTS",
     title: "儀表",
     intro: "監聽站的儀表:刻度、讀數、狀態點。顏色即嚴重度——沒有狀態的東西就是中性的,那才是常態。宇宙大部分時間是安靜的,儀表也該是。",
-    mark: { note: "參數化的星兜俯視圖:plates 是板數,rings 是同心圈,majorEvery 決定主鉚釘的間距。" },
+    mark: { note: "同一枚記號:板數、圈數、主鉚釘的疏密,都由使用端決定。" },
     labelSpec: {
       note: "儀表面板上的刻度。等寬、全大寫、0.20em 字距。",
       samples: ["TARGET SOURCE", "FREQUENCY", "LAST SWEEP"],
     },
     value: {
-      note: "讀數。state 是嚴重度,不是裝飾——不得因為「這裡需要一點顏色」而傳入。",
+      note: "讀數。狀態即嚴重度,不是裝飾——不得因為「這裡需要一點顏色」就給它一個狀態。",
       rows: [
         { label: "SIGNALS", value: "1,379", state: "nominal" },
         { label: "FLICKER", value: "17", state: "warn" },
@@ -162,7 +162,7 @@ export const zh: Dictionary = {
       samples: ["theme", "v0.3.0", "MIT"],
     },
     modeSwitch: {
-      note: "三態:自動把選擇交還系統。文件元素是唯一真值——這顆與 header 那顆永遠同步。",
+      note: "三態:自動把選擇交還系統。整頁只有一個真值,這顆與頁首那顆永遠同步。",
     },
     badge: {
       note: "戳印式狀態籤:髮絲框、不填色。有色的徽章是對狀態的斷言,不是裝飾。",
@@ -198,7 +198,7 @@ export const zh: Dictionary = {
     },
     scenario: {
       title: "情境:監聽任務",
-      note: "field 以元素子節點接收控制項,注入 id 與 aria-describedby——公開 API 不收函式。",
+      note: "欄位自己把標籤、提示與錯誤接到控制項上——使用端一行函式都不用寫。",
       domainLabel: "TARGET SOURCE",
       domainHint: "訊號源或星表編號",
       domainPlaceholder: "半人馬座 α",
@@ -242,7 +242,7 @@ export const zh: Dictionary = {
       label: "RAW FRAME",
     },
     combobox: {
-      note: "帶過濾行的選單。選項是資料、值走隱藏 input 進表單——公開 API 不收函式。",
+      note: "帶過濾行的選單。選項是純資料,選好的值自己跟著表單送出。",
       label: "ASSIGN WATCH",
       placeholder: "指派監聽崗…",
       searchPlaceholder: "過濾…",
@@ -255,7 +255,7 @@ export const zh: Dictionary = {
       ],
     },
     datePicker: {
-      note: "浮層裡的月曆,日期落進隱藏 input——不需要回呼。被選的那天是一顆釘進去的鉚釘。",
+      note: "浮層裡的月曆,選好的日期自己跟著表單送出。被選的那天,是一顆釘進去的鉚釘。",
       label: "STABLE ERA WINDOW",
     },
     otp: {
@@ -266,9 +266,9 @@ export const zh: Dictionary = {
   overlays: {
     label: "OVERLAYS",
     title: "浮層",
-    intro: "浮層的進出動態定義在 theme 的 data-slot 規則裡——元件不得自己發明進場方式。",
+    intro: "浮層怎麼進、怎麼出,由佈景統一決定——元件不得自己發明進場方式。",
     dialog: {
-      note: "置中浮層,漆幕壓底。焦點陷阱、Esc 關閉、關閉後焦點歸還觸發元素。",
+      note: "置中浮層,漆幕壓底。焦點留在板內,Esc 關閉,關上之後回到來處。",
       trigger: "Open dialog",
       title: "確認刪除監聽任務",
       description: "此動作無法復原。",

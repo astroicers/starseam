@@ -246,20 +246,20 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
                   className="h-12 rounded-[var(--ss-radius)] border border-[var(--ss-seam)]"
                   style={{ background: `var(--${t.key})` }}
                 />
-                <div className="mt-3 flex items-baseline justify-between gap-2">
-                  <code className="font-[family-name:var(--ss-mono)] text-[12px] text-[var(--ss-text)]">
-                    --{t.key}
-                  </code>
+                {/* The colour's name and role lead; the token is a footnote. */}
+                <div className="mt-3 flex items-baseline gap-2">
                   {t.name ? (
-                    <span lang="ja" className="text-[13px] text-[var(--ss-text-2)]">
+                    <span lang="ja" className="text-[15px] text-[var(--ss-text)]">
                       {t.name}
                     </span>
                   ) : null}
+                  <span className="text-[13.5px] leading-[1.7] text-[var(--ss-text-2)]">
+                    {d.palette.roles[t.role]}
+                  </span>
                 </div>
-                <p className="mt-1 text-[13px] leading-[1.7] text-[var(--ss-text-2)]">
-                  {d.palette.roles[t.role]}
-                </p>
-                <p className="mt-2 font-[family-name:var(--ss-mono)] text-[11px] uppercase tracking-[0.06em] text-[var(--ss-text-3)]">
+                <p className="mt-2 font-[family-name:var(--ss-mono)] text-[11px] leading-[1.8] text-[var(--ss-text-3)]">
+                  --{t.key}
+                  <br />
                   {d.palette.consoleLabel} {hex.dark[t.key]} · {d.palette.reportLabel}{" "}
                   {hex.light[t.key]}
                 </p>
@@ -991,11 +991,13 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
           {d.install.body}
         </p>
         <Plate elevation="flush" className="mt-4">
-          <div className="flex items-center justify-between gap-4 overflow-x-auto">
-            <code className="select-all font-[family-name:var(--ss-mono)] text-[13px] whitespace-pre text-[var(--ss-text-2)]">
-              npx shadcn@latest add https://starseam.astroicers.link/r/theme.json
+          <div className="flex items-start justify-between gap-4">
+            <code className="min-w-0 select-all break-all font-[family-name:var(--ss-mono)] text-[13px] leading-[1.8]">
+              <span className="text-[var(--ss-text-3)]">npx shadcn@latest add https://starseam.astroicers.link/r/</span>
+              <span className="text-[var(--ss-text)]">theme</span>
+              <span className="text-[var(--ss-text-3)]">.json</span>
             </code>
-            <CopyButton value="npx shadcn@latest add https://starseam.astroicers.link/r/theme.json" />
+            <CopyButton value="npx shadcn@latest add https://starseam.astroicers.link/r/theme.json" className="mt-[3px] shrink-0" />
           </div>
         </Plate>
         <p className="mt-6 max-w-[680px] text-[15.5px] leading-[1.9] text-[var(--ss-text-2)]">

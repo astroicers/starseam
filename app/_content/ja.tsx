@@ -126,13 +126,13 @@ export const ja: Dictionary = {
     label: "INSTRUMENTS",
     title: "計器",
     intro: "傍受局の計器:目盛、読み値、状態点。色は重大度——状態のないものは中立で、それが常態。宇宙はほとんどの時間、静かだ。計器盤もそうあるべきだ。",
-    mark: { note: "パラメトリックな兜の平面図:plates は板数、rings は同心円、majorEvery は主鋲の間隔。" },
+    mark: { note: "同じ記号。板の数、円の数、主鋲の疎密は、使う側が決める。" },
     labelSpec: {
       note: "計器盤の目盛文字。等幅、大文字、字間 0.20em。",
       samples: ["TARGET SOURCE", "FREQUENCY", "LAST SWEEP"],
     },
     value: {
-      note: "読み値。state は重大度であって装飾ではない——「ここに色が欲しい」では渡さないこと。",
+      note: "読み値。状態は重大度であって装飾ではない——「ここに色が欲しい」で状態を与えないこと。",
       rows: [
         { label: "SIGNALS", value: "1,379", state: "nominal" },
         { label: "FLICKER", value: "17", state: "warn" },
@@ -161,7 +161,7 @@ export const ja: Dictionary = {
       samples: ["theme", "v0.3.0", "MIT"],
     },
     modeSwitch: {
-      note: "三値:「自動」は選択を系に返す。document 要素が唯一の真実——この一台とヘッダーの一台が食い違うことはない。",
+      note: "三値:「自動」は選択を系に返す。頁にひとつの真実——この一台とヘッダーの一台が食い違うことはない。",
     },
     badge: {
       note: "刻印の状態札:毛筋の枠、塗りなし。色付きの札は状態への断言であって、飾りではない。",
@@ -197,7 +197,7 @@ export const ja: Dictionary = {
     },
     scenario: {
       title: "シナリオ:傍受ラン",
-      note: "field は操作部品を要素の子として受け取り、id と aria-describedby を注入する——公開 API は関数を受け取らない。",
+      note: "欄はラベルと補足と誤りを自分で部品につなぐ——使う側は関数を一行も書かない。",
       domainLabel: "TARGET SOURCE",
       domainHint: "信号源またはカタログ番号",
       domainPlaceholder: "ケンタウルス座 α",
@@ -241,7 +241,7 @@ export const ja: Dictionary = {
       label: "RAW FRAME",
     },
     combobox: {
-      note: "絞り込み行つきのセレクト。選択肢はデータ、値は隠し input でフォームへ——公開 API は関数を受け取らない。",
+      note: "絞り込み行つきのセレクト。選択肢はただのデータ、選んだ値はそのままフォームと共に送られる。",
       label: "ASSIGN WATCH",
       placeholder: "傍受当番を割り当て…",
       searchPlaceholder: "絞り込み…",
@@ -254,7 +254,7 @@ export const ja: Dictionary = {
       ],
     },
     datePicker: {
-      note: "ポップオーバーの中の暦。日付は隠し input に落ちる——コールバック不要。選ばれた日は打ち込まれた鋲。",
+      note: "ポップオーバーの中の暦。選んだ日付はそのままフォームと共に送られる。選ばれた日は、打ち込まれた鋲。",
       label: "STABLE ERA WINDOW",
     },
     otp: {
@@ -265,9 +265,9 @@ export const ja: Dictionary = {
   overlays: {
     label: "OVERLAYS",
     title: "浮層",
-    intro: "浮層の出入りは theme の data-slot 規則に定める——部品が勝手に登場の仕方を発明してはならない。",
+    intro: "浮層の入りと出は、舞台がまとめて決める——部品が勝手に登場の仕方を発明してはならない。",
     dialog: {
-      note: "中央の浮層、漆の幕を敷く。フォーカスは閉じ込め、Esc で閉じ、閉じたらトリガーへ返す。",
+      note: "中央の浮層、漆の幕を敷く。フォーカスは板の内に留まり、Esc で閉じ、閉じたら元の場所へ戻る。",
       trigger: "Open dialog",
       title: "この傍受ランを削除しますか",
       description: "この操作は取り消せません。",

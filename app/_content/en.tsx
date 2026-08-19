@@ -134,14 +134,14 @@ export const en: Dictionary = {
     intro:
       "Listening-station instrumentation: scales, readings, status points. Colour is severity — anything without a state is neutral, and neutral is the norm. The universe is quiet most of the time; the panel should be too.",
     mark: {
-      note: "The parametric helmet plan: plates counts the plates, rings the concentric circles, majorEvery the pitch of the major rivets.",
+      note: "One figure; the plate count, the rings, and the pitch of the major rivets are all yours to set.",
     },
     labelSpec: {
       note: "Panel-scale lettering. Monospaced, uppercase, 0.20em tracking.",
       samples: ["TARGET SOURCE", "FREQUENCY", "LAST SWEEP"],
     },
     value: {
-      note: "A reading. State is severity, never decoration — do not pass one because “this could use some colour”.",
+      note: "A reading. State is severity, never decoration — never give it a state because “this could use some colour”.",
       rows: [
         { label: "SIGNALS", value: "1,379", state: "nominal" },
         { label: "FLICKER", value: "17", state: "warn" },
@@ -170,7 +170,7 @@ export const en: Dictionary = {
       samples: ["theme", "v0.3.0", "MIT"],
     },
     modeSwitch: {
-      note: "Tri-state: auto hands the choice back to the system. The document element is the single source of truth — this instance and the one in the header can never disagree.",
+      note: "Tri-state: auto hands the choice back to the system. One truth for the whole page — this instance and the one in the header can never disagree.",
     },
     badge: {
       note: "A stamped status tag: hairline border, no fill. A coloured badge is a claim about the state of the thing, not decoration.",
@@ -207,7 +207,7 @@ export const en: Dictionary = {
     },
     scenario: {
       title: "Scenario: listening run",
-      note: "field receives its control as an element child and injects id and aria-describedby — the public API takes no functions.",
+      note: "The field wires its label, hint, and error to the control by itself — the consumer writes no functions at all.",
       domainLabel: "TARGET SOURCE",
       domainHint: "A signal source or catalogue number",
       domainPlaceholder: "Alpha Centauri",
@@ -251,7 +251,7 @@ export const en: Dictionary = {
       label: "RAW FRAME",
     },
     combobox: {
-      note: "A select with a filter line. Options are data and the value rides a hidden input into the form — the public API takes no functions.",
+      note: "A select with a filter line. Options are plain data, and the chosen value travels with the form on its own.",
       label: "ASSIGN WATCH",
       placeholder: "Assign a listening post…",
       searchPlaceholder: "Filter…",
@@ -264,7 +264,7 @@ export const en: Dictionary = {
       ],
     },
     datePicker: {
-      note: "A calendar in a popover; the date lands in a hidden input — no callback required. The chosen day is a rivet driven home.",
+      note: "A calendar in a popover; the chosen date travels with the form on its own. The chosen day is a rivet driven home.",
       label: "STABLE ERA WINDOW",
     },
     otp: {
@@ -276,9 +276,9 @@ export const en: Dictionary = {
     label: "OVERLAYS",
     title: "Overlays",
     intro:
-      "Entry and exit of every floating layer are defined in the theme's data-slot rules — a component cannot invent its own entrance.",
+      "How a floating layer enters and leaves is decided once, by the theme — no component invents its own entrance.",
     dialog: {
-      note: "A centred layer over a lacquer scrim. Focus is trapped, Esc closes, and focus returns to the trigger.",
+      note: "A centred layer over a lacquer scrim. Focus stays on the plate, Esc closes, and you return where you came from.",
       trigger: "Open dialog",
       title: "Delete this listening run?",
       description: "This action cannot be undone.",
