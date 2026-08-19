@@ -9,6 +9,7 @@ export const ja: Dictionary = {
   },
   header: {
     nav: [
+      { id: "index", label: "索引" },
       { id: "palette", label: "配色" },
       { id: "surfaces", label: "板面" },
       { id: "instruments", label: "計器" },
@@ -35,7 +36,7 @@ export const ja: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "49" },
+    { label: "ITEMS", value: "50" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -60,6 +61,11 @@ export const ja: Dictionary = {
         body: "同心円、方位線、掃引扇形——夜空を見張るあの計器。",
       },
     ],
+  },
+  componentIndex: {
+    label: "INDEX",
+    intro: "五十の部品を、区分ごとに並べた。名前を押せば、その板へまっすぐ届く。",
+    title: "索引",
   },
   palette: {
     label: "PALETTE",
@@ -190,10 +196,18 @@ export const ja: Dictionary = {
       </>
     ),
     button: {
-      note: "quiet が常態。live は画面で唯一の青を使う——一画面に一つまで。",
+      note: "quiet が常態。live は画面で唯一の青を使う——一画面に一つまで。crit は破壊的操作にのみ、必ず文字を添えて。ghost は枠なしの静かな一手。四つの寸法、正方形のアイコン鈕を含む。",
       quiet: "Read decisions",
       live: "Get started",
       disabled: "Disabled",
+      crit: "Delete run",
+      ghost: "Details",
+    },
+    buttonGroup: {
+      note: "数個の鈕を一条に鋲留め:外枠は毛筋一周、部材の間は矧ぎ目——境界は群のもので、各々の鈕のものではない。",
+      run: "傍受",
+      pause: "一時停止",
+      seal: "封印",
     },
     scenario: {
       title: "シナリオ:傍受ラン",

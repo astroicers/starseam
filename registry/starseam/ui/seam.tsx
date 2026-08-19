@@ -9,6 +9,8 @@ export interface SeamProps extends React.ComponentProps<"div"> {
   live?: boolean;
   /** Every nth rivet is a major one, matching the mark. */
   majorEvery?: number;
+  /** A vertical seam joins things standing side by side. */
+  orientation?: "horizontal" | "vertical";
 }
 
 /**
@@ -19,16 +21,28 @@ export interface SeamProps extends React.ComponentProps<"div"> {
  * would not change what the layout means, the seam is decoration and must
  * not be there. DECISIONS 03.
  */
-function Seam({ className, live = false, majorEvery = 8, ...props }: SeamProps) {
+function Seam({
+  className,
+  live = false,
+  majorEvery = 8,
+  orientation = "horizontal",
+  ...props
+}: SeamProps) {
   const rivet = live ? "var(--ss-live)" : "var(--ss-rivet)";
+  const vertical = orientation === "vertical";
 
   return (
     <div
       data-slot="seam"
       data-state={live ? "live" : undefined}
+      data-orientation={orientation}
       role="presentation"
       aria-hidden="true"
-      className={cn("relative h-px w-full bg-[var(--ss-seam)]", className)}
+      className={cn(
+        "relative bg-[var(--ss-seam)]",
+        vertical ? "h-full w-px self-stretch" : "h-px w-full",
+        className
+      )}
       style={
         {
           "--rivet-color": rivet,
@@ -38,14 +52,27 @@ function Seam({ className, live = false, majorEvery = 8, ...props }: SeamProps) 
       {...props}
     >
       <span
-        className="pointer-events-none absolute inset-x-0 block"
-        style={{
-          top: "calc(var(--ss-rivet-size) / -2)",
-          height: "var(--ss-rivet-size)",
-          backgroundImage: `radial-gradient(circle, ${rivet} 0 calc(var(--ss-rivet-size) / 2), transparent calc(var(--ss-rivet-size) / 2 + 0.5px))`,
-          backgroundSize: "var(--ss-rivet-pitch) var(--ss-rivet-size)",
-          backgroundRepeat: "repeat-x",
-        }}
+        className={cn(
+          "pointer-events-none absolute block",
+          vertical ? "inset-y-0" : "inset-x-0"
+        )}
+        style={
+          vertical
+            ? {
+                left: "calc(var(--ss-rivet-size) / -2)",
+                width: "var(--ss-rivet-size)",
+                backgroundImage: `radial-gradient(circle, ${rivet} 0 calc(var(--ss-rivet-size) / 2), transparent calc(var(--ss-rivet-size) / 2 + 0.5px))`,
+                backgroundSize: "var(--ss-rivet-size) var(--ss-rivet-pitch)",
+                backgroundRepeat: "repeat-y",
+              }
+            : {
+                top: "calc(var(--ss-rivet-size) / -2)",
+                height: "var(--ss-rivet-size)",
+                backgroundImage: `radial-gradient(circle, ${rivet} 0 calc(var(--ss-rivet-size) / 2), transparent calc(var(--ss-rivet-size) / 2 + 0.5px))`,
+                backgroundSize: "var(--ss-rivet-pitch) var(--ss-rivet-size)",
+                backgroundRepeat: "repeat-x",
+              }
+        }
       />
     </div>
   );

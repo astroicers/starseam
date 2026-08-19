@@ -9,6 +9,7 @@ export const en: Dictionary = {
   },
   header: {
     nav: [
+      { id: "index", label: "Index" },
       { id: "palette", label: "Palette" },
       { id: "surfaces", label: "Surfaces" },
       { id: "instruments", label: "Instruments" },
@@ -40,7 +41,7 @@ export const en: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "49" },
+    { label: "ITEMS", value: "50" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -65,6 +66,11 @@ export const en: Dictionary = {
         body: "Concentric rings, bearing lines, sweep sectors — the instrument that watches the night sky.",
       },
     ],
+  },
+  componentIndex: {
+    label: "INDEX",
+    title: "Index",
+    intro: "Fifty pieces, arranged by section. A name takes you straight to its plate.",
   },
   palette: {
     label: "PALETTE",
@@ -200,10 +206,18 @@ export const en: Dictionary = {
       </>
     ),
     button: {
-      note: "quiet is the norm; live spends the one blue moment on the screen — at most one per view.",
+      note: "quiet is the norm; live spends the one blue moment on the screen — at most one per view; crit is for destructive actions only, always with text; ghost is the frameless whisper. Four sizes, including a square icon cut.",
       quiet: "Read decisions",
       live: "Get started",
       disabled: "Disabled",
+      crit: "Delete run",
+      ghost: "Details",
+    },
+    buttonGroup: {
+      note: "Buttons riveted into one strip: one hairline frame, seams between the members — the boundary belongs to the group, not to each button.",
+      run: "Listen",
+      pause: "Pause",
+      seal: "Seal",
     },
     scenario: {
       title: "Scenario: listening run",

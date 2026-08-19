@@ -150,9 +150,12 @@ import {
   PlateInputOTPSlot,
   PlateInputOTPSeparator,
 } from "@/components/ui/plate-input-otp";
+import { ButtonGroup } from "@/components/ui/button-group";
 import { ToastDemo } from "./toast-demo";
 import { Specimen } from "./specimen";
 import { SiteHeader } from "./site-header";
+import { StarRail } from "./star-rail";
+import { NavFab } from "./nav-fab";
 import type { Dictionary, SectionHead } from "../_content/types";
 import registryIndex from "../../registry.json";
 
@@ -185,6 +188,86 @@ function themeHex(): { light: Record<string, string>; dark: Record<string, strin
 
 export type Locale = "zh-Hant" | "en" | "ja";
 
+/** The catalogue's own star chart: which piece sits in which section. */
+const INDEX_GROUPS: { id: string; names: string[] }[] = [
+  { id: "surfaces", names: ["plate", "lames", "seam", "alert", "skeleton"] },
+  {
+    id: "instruments",
+    names: [
+      "mark",
+      "label",
+      "value",
+      "status-dot",
+      "stat-band",
+      "code-tag",
+      "mode-switch",
+      "badge",
+      "kbd",
+      "avatar",
+      "progress",
+    ],
+  },
+  {
+    id: "controls",
+    names: [
+      "plate-button",
+      "button-group",
+      "plate-checkbox",
+      "plate-switch",
+      "copy-button",
+      "plate-radio-group",
+      "plate-slider",
+      "plate-toggle",
+      "plate-combobox",
+      "plate-calendar",
+      "plate-date-picker",
+      "plate-input-otp",
+      "field",
+      "plate-input",
+      "plate-select",
+      "plate-textarea",
+    ],
+  },
+  {
+    id: "overlays",
+    names: [
+      "plate-dialog",
+      "plate-sheet",
+      "plate-dropdown-menu",
+      "plate-alert-dialog",
+      "plate-popover",
+      "plate-tooltip",
+      "plate-hover-card",
+      "plate-context-menu",
+      "plate-menubar",
+      "plate-command",
+      "plate-toast",
+    ],
+  },
+  {
+    id: "structure",
+    names: [
+      "plate-tabs",
+      "plate-table",
+      "plate-accordion",
+      "plate-collapsible",
+      "breadcrumb",
+      "pagination",
+      "scroll-area",
+    ],
+  },
+];
+
+/** Composite specimens anchor several items to one plate. */
+const ANCHOR_ALIAS: Record<string, string> = {
+  "plate-input": "field",
+  "plate-select": "field",
+  "plate-textarea": "field",
+  "plate-switch": "plate-checkbox",
+  "plate-date-picker": "plate-calendar",
+  "plate-table": "plate-tabs",
+};
+
 function SectionHeading({ head, id }: { head: SectionHead; id: string }) {
   return (
     <>
@@ -204,6 +287,8 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   return (
     <main className="mx-auto max-w-[980px] px-6 py-10">
       <SiteHeader dict={d.header} locale={locale} />
+      <StarRail sections={d.header.nav} ariaLabel={d.header.navAria} />
+      <NavFab dict={d.header} locale={locale} />
 
       <h1 className="mt-12 font-[family-name:var(--ss-mono)] text-[clamp(30px,6vw,52px)] font-semibold leading-none tracking-[0.005em]">
         starseam
@@ -230,6 +315,30 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
                 {r.body}
               </p>
             </Plate>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      <section id="index" className="mt-20 scroll-mt-8">
+        <SectionHeading id="index" head={d.componentIndex} />
+        <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-5">
+          {INDEX_GROUPS.map((g) => (
+            <div key={g.id}>
+              <Label>{d.header.nav.find((n) => n.id === g.id)?.label ?? g.id}</Label>
+              <ul className="mt-3 space-y-[5px]">
+                {g.names.map((n) => (
+                  <li key={n}>
+                    <a
+                      href={`#${ANCHOR_ALIAS[n] ?? n}`}
+                      className="font-[family-name:var(--ss-mono)] text-[12.5px] text-[var(--ss-text-2)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] hover:text-[var(--ss-text)]"
+                    >
+                      {n}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
       </section>
@@ -338,6 +447,12 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
                 <p className="py-3 text-[14px] text-[var(--ss-text-2)]">{row}</p>
               </div>
             ))}
+            <Seam />
+            <div className="flex items-stretch gap-5 pt-3">
+              <p className="text-[14px] text-[var(--ss-text-2)]">{d.surfaces.seam.rows[0]}</p>
+              <Seam orientation="vertical" />
+              <p className="text-[14px] text-[var(--ss-text-2)]">{d.surfaces.seam.rows[1]}</p>
+            </div>
           </Plate>
         </Specimen>
 
@@ -484,11 +599,31 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
         <div className="mt-8 space-y-4">
         <div className="grid items-start gap-4 sm:grid-cols-2">
         <Specimen names={["plate-button"]} note={d.controls.button.note}>
-          <div className="flex flex-wrap items-center gap-3">
-            <PlateButton variant="live">{d.controls.button.live}</PlateButton>
-            <PlateButton>{d.controls.button.quiet}</PlateButton>
-            <PlateButton disabled>{d.controls.button.disabled}</PlateButton>
+          <div className="space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <PlateButton variant="live">{d.controls.button.live}</PlateButton>
+              <PlateButton>{d.controls.button.quiet}</PlateButton>
+              <PlateButton variant="crit">{d.controls.button.crit}</PlateButton>
+              <PlateButton variant="ghost">{d.controls.button.ghost}</PlateButton>
+              <PlateButton disabled>{d.controls.button.disabled}</PlateButton>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <PlateButton size="sm">{d.controls.button.quiet}</PlateButton>
+              <PlateButton size="md">{d.controls.button.quiet}</PlateButton>
+              <PlateButton size="lg">{d.controls.button.quiet}</PlateButton>
+              <PlateButton size="icon" aria-label={d.controls.button.quiet}>
+                <Mark size={16} plates={8} rings={1} majorEvery={2} />
+              </PlateButton>
+            </div>
           </div>
+        </Specimen>
+
+        <Specimen names={["button-group"]} note={d.controls.buttonGroup.note}>
+          <ButtonGroup>
+            <PlateButton variant="ghost">{d.controls.buttonGroup.run}</PlateButton>
+            <PlateButton variant="ghost">{d.controls.buttonGroup.pause}</PlateButton>
+            <PlateButton variant="ghost">{d.controls.buttonGroup.seal}</PlateButton>
+          </ButtonGroup>
         </Specimen>
 
         <Specimen names={["plate-checkbox", "plate-switch"]} note={d.controls.toggles.note}>
@@ -715,9 +850,7 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
                   <PlateButton>{d.overlays.alertDialog.cancel}</PlateButton>
                 </AlertDialogCancel>
                 <AlertDialogAction asChild>
-                  <PlateButton className="border-[var(--ss-crit)] text-[var(--ss-crit)]">
-                    {d.overlays.alertDialog.confirm}
-                  </PlateButton>
+                  <PlateButton variant="crit">{d.overlays.alertDialog.confirm}</PlateButton>
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>

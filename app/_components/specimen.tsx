@@ -25,7 +25,7 @@ export function Specimen({
   children: React.ReactNode;
 }>) {
   return (
-    <Plate elevation="flush" className={`min-w-0 ${className ?? ""}`}>
+    <Plate id={names[0]} elevation="flush" className={`min-w-0 scroll-mt-8 ${className ?? ""}`}>
       <div className="flex flex-wrap gap-2">
         {names.map((n) => (
           <CodeTag key={n}>{n}</CodeTag>

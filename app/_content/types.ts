@@ -8,6 +8,7 @@ import type { ReactNode } from "react";
 
 export type SectionId =
   | "readings"
+  | "index"
   | "palette"
   | "surfaces"
   | "instruments"
@@ -38,6 +39,7 @@ export interface Dictionary {
   readings: SectionHead & {
     cards: { en: string; title: string; body: string }[];
   };
+  componentIndex: SectionHead;
   palette: SectionHead & {
     consoleLabel: string;
     reportLabel: string;
@@ -99,7 +101,15 @@ export interface Dictionary {
     progress: { note: string; label: string };
   };
   controls: SectionHead & {
-    button: { note: string; quiet: string; live: string; disabled: string };
+    button: {
+      note: string;
+      quiet: string;
+      live: string;
+      disabled: string;
+      crit: string;
+      ghost: string;
+    };
+    buttonGroup: { note: string; run: string; pause: string; seal: string };
     scenario: {
       title: string;
       note: string;

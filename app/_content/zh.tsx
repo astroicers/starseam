@@ -9,6 +9,7 @@ export const zh: Dictionary = {
   },
   header: {
     nav: [
+      { id: "index", label: "索引" },
       { id: "palette", label: "配色" },
       { id: "surfaces", label: "板面" },
       { id: "instruments", label: "儀表" },
@@ -36,7 +37,7 @@ export const zh: Dictionary = {
     ),
   },
   stats: [
-    { label: "ITEMS", value: "49" },
+    { label: "ITEMS", value: "50" },
     { label: "MODES", value: "2" },
     { label: "SHADOWS", value: "0" },
     { label: "STATUS", value: "LIVE", state: "live" },
@@ -61,6 +62,11 @@ export const zh: Dictionary = {
         body: "同心圈、方位線、掃描扇區——夜裡盯著天空的那台儀器。",
       },
     ],
+  },
+  componentIndex: {
+    label: "INDEX",
+    title: "索引",
+    intro: "五十件原件,按分區排列。點名字直達那一片板。",
   },
   palette: {
     label: "PALETTE",
@@ -191,10 +197,18 @@ export const zh: Dictionary = {
       </>
     ),
     button: {
-      note: "quiet 是常態;live 花掉畫面上唯一的藍,一個畫面至多一顆。",
+      note: "quiet 是常態;live 花掉畫面上唯一的藍,一個畫面至多一顆;crit 只給毀滅性動作,且永遠附文字;ghost 是無框的靜音鈕。四種尺寸,含方形圖示鈕。",
       quiet: "Read decisions",
       live: "Get started",
       disabled: "Disabled",
+      crit: "Delete run",
+      ghost: "Details",
+    },
+    buttonGroup: {
+      note: "數顆按鈕鉚成一條:一圈髮絲外框,成員之間是接縫——邊界屬於群組,不屬於各自的鈕。",
+      run: "監聽",
+      pause: "暫停",
+      seal: "封存",
     },
     scenario: {
       title: "情境:監聽任務",
