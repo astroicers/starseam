@@ -19,6 +19,7 @@ export const zh: Dictionary = {
       { id: "decisions", label: "裁決" },
       { id: "install", label: "安裝" },
     ],
+    commandK: { placeholder: "搜尋元件或分區…", empty: "沒有符合的項目。", aria: "快速跳轉" },
     navAria: "區塊導覽",
     mode: { auto: "自動", console: "夜勤", report: "日勤" },
     modeAria: "色彩模式",
@@ -165,7 +166,7 @@ export const zh: Dictionary = {
     },
     codeTag: {
       note: "行內代碼與版本標籤。",
-      samples: ["theme", "v0.3.0", "MIT"],
+      samples: ["theme", "v0.4.0", "MIT"],
     },
     modeSwitch: {
       note: "三態:自動把選擇交還系統。整頁只有一個真值,這顆與頁首那顆永遠同步。",

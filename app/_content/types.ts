@@ -30,6 +30,7 @@ export interface Dictionary {
   header: {
     nav: { id: SectionId; label: string }[];
     navAria: string;
+    commandK: { placeholder: string; empty: string; aria: string };
     mode: { auto: string; console: string; report: string };
     modeAria: string;
     langAria: string;

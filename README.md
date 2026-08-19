@@ -10,6 +10,11 @@
 `starseam` 是一套 [shadcn](https://ui.shadcn.com) registry:黒漆為地,鉚釘承重,
 繁體中文與日文分語系排版。沒有陰影、沒有毛玻璃、沒有輝光——**深度是實體的**。
 
+展示站:**[starseam.astroicers.link](https://starseam.astroicers.link)**
+([EN](https://starseam.astroicers.link/en) · [日本語](https://starseam.astroicers.link/ja))——
+五十件元件全數實際渲染,各附安裝指令與複製鈕;按 `Ctrl K` 直達任何一件,
+可安裝為 PWA。demo 的內容是一座指向半人馬座 α 的監聽站。
+
 ![starseam — console](docs/preview-console.svg)
 ![starseam — report](docs/preview-report.svg)
 
@@ -43,41 +48,22 @@ npx shadcn@latest add @starseam/plate @starseam/stat-band
 
 ---
 
-## 元件
+## 元件(50 件)
 
-| Item | 是什麼 |
+shadcn/ui 有的品項,凡是過得了裁決的,這裡都有——以星兜語彙重製。
+與裁決衝突的(form 的 render prop、carousel 的滑動、一切循環的等待動畫)
+記錄在 `DECISIONS.md` 的被否決方向,不做,也不默默跳過。
+
+| 分區 | Items |
 | --- | --- |
-| `theme` | Token 層——黒漆地、鉚釘、嚴重度色、em 網格、分語系字體堆疊 |
-| `seam` | **署名元件**。一排鉚釘,標記兩個區塊真正相接之處 |
-| `plate` | 基底表面。一片鐵板,無陰影 |
-| `lames` | 板片堆疊,一片壓一片(錣) |
-| `mark` | 記號。兜的俯視圖 · 星圖 · 雷達幕,三種讀法 |
-| `stat-band` | 儀表帶。以接縫線分隔的資料格 |
-| `label` / `value` | 儀器排版。等寬、大字距、等寬數字 |
-| `status-dot` | 單顆鉚釘代表狀態。只有 critical 會動 |
-| `code-tag` | 等寬識別碼——技術棧、版號、CVE |
-| `plate-button` | 切出來的板,可以按 |
-| `mode-toggle` | 夜勤 ↔ 日勤,附無閃爍的預繪指令碼 |
+| 板面 | `plate` `lames` `seam` `alert` `skeleton` |
+| 儀表 | `mark` `label` `value` `status-dot` `stat-band` `code-tag` `mode-switch` `badge` `kbd` `avatar` `progress` |
+| 控制項 | `plate-button` `button-group` `plate-checkbox` `plate-switch` `copy-button` `plate-radio-group` `plate-slider` `plate-toggle` `plate-combobox` `plate-calendar` `plate-date-picker` `plate-input-otp` `field` `plate-input` `plate-select` `plate-textarea` |
+| 浮層 | `plate-dialog` `plate-sheet` `plate-dropdown-menu` `plate-alert-dialog` `plate-popover` `plate-tooltip` `plate-hover-card` `plate-context-menu` `plate-menubar` `plate-command` `plate-toast` |
+| 結構 | `plate-tabs` `plate-table` `plate-accordion` `plate-collapsible` `breadcrumb` `pagination` `scroll-area` |
 
-**表單**
-
-| Item | 是什麼 |
-| --- | --- |
-| `field` | 串起標籤、控制項、提示與錯誤。錯誤是欄位唯一能上色的地方 |
-| `plate-input` / `plate-textarea` | 可以寫進去的板 |
-| `plate-checkbox` | 打勾就是**鉚釘釘進去**——鋼銀,不是藍的 |
-| `plate-switch` | 滑鈕是沿著接縫滑動的鉚釘 |
-| `plate-select` | 浮在最亮那一刀漆上的清單,選取以鉚釘標記 |
-
-**浮層與結構**
-
-| Item | 是什麼 |
-| --- | --- |
-| `plate-dialog` | 被抬離頁面的一片板,頁首與頁尾的接合處有鉚釘 |
-| `plate-sheet` | 自邊緣抽出的面板——靜止原則唯一的方向性例外 |
-| `plate-dropdown-menu` | 選單。分隔線是刻痕,不是鉚接的接縫 |
-| `plate-tabs` | 分頁列與內容是兩片相接的板,中間走一道鉚縫 |
-| `plate-table` | 列即甲板。鉚釘只出現在表頭與表身的接合處 |
+`theme` 一項另計。命名:可互動的板件冠 `plate-`,結構性的東西用素名。
+每一件的設計注記與多狀態展示都在展示站上,選取一律銀鼠、嚴重度一律附文字。
 
 ---
 
@@ -174,20 +160,16 @@ node scripts/audit-contrast.mjs
 
 ---
 
-## Roadmap
+## 現況與落差
 
-v0.1.0 是骨架,刻意只做承重的部分。
+v0.4.0:五十件元件、三語展示站(繁中 / EN / 日)、雙材質模式、可安裝 PWA、
+站內 `Ctrl K` 指令面板。shadcn/ui 的品項覆蓋完畢;與裁決衝突者記錄在案。
 
-**已完成(v0.2.0)**:表單控制項、對話框與 sheet、dropdown menu、tabs、table。
-使用者不再需要為了一個輸入框去混用不遵守裁決的原生 shadcn 元件。
+**下一步**:chart(自繪 SVG sparkline,監控室語彙)、`empty` 空狀態板。
 
-**下一步**:tooltip、popover、accordion、toast、breadcrumb、pagination。
-
-**暫緩**:calendar、command palette、carousel、charts。
-依賴重、與星兜語彙的槓桿低,有需求再說。
-
-**已知落差**:未經螢幕報讀器實測;未做 200% 縮放與 320px 回流測試。
-兩者都列在無障礙文件的「尚未涵蓋」。
+**已知落差**:未經螢幕報讀器實測;live region 規範未定;
+CJK 排版屬性已在 Chromium 與 Firefox 實測,Safari 未驗證。
+全部誠實列在無障礙文件的「尚未涵蓋」。
 
 ---
 
@@ -212,8 +194,10 @@ v0.1.0 是骨架,刻意只做承重的部分。
 ```bash
 npm install
 npm run dev            # demo 站
+npm run audit          # 對比度稽核——CI 第一道關卡
 npm run registry:build # 產生 public/r/*.json
 npm run typecheck
+npm run deploy         # registry:build + build + wrangler deploy
 ```
 
 ---

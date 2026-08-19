@@ -284,9 +284,19 @@ function SectionHeading({ head, id }: { head: SectionHead; id: string }) {
 
 export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const d = dict;
+  const commandGroups = [
+    {
+      label: d.header.navAria,
+      items: d.header.nav.map((n) => ({ id: n.id, label: n.label })),
+    },
+    ...INDEX_GROUPS.map((g) => ({
+      label: d.header.nav.find((n) => n.id === g.id)?.label ?? g.id,
+      items: g.names.map((n) => ({ id: ANCHOR_ALIAS[n] ?? n, label: n })),
+    })),
+  ];
   return (
     <main className="mx-auto max-w-[980px] px-6 py-10">
-      <SiteHeader dict={d.header} locale={locale} />
+      <SiteHeader dict={d.header} locale={locale} commandGroups={commandGroups} />
       <StarRail sections={d.header.nav} ariaLabel={d.header.navAria} />
       <NavFab dict={d.header} locale={locale} />
 

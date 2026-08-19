@@ -46,7 +46,10 @@ v0.1.0 修正前有五組不合格,其中 `text-3` 兩個模式都失敗——�
 Chromium 151 實測(2026-08-19):三者皆支援且實際生效——`getComputedStyle` 回報
 `lang="ja"` 節點 `word-break: auto-phrase`、`zh-Hant` 根節點 `text-spacing-trim: trim-start`
 與 `text-autospace: normal`;標題 `text-wrap: balance`、段落 `text-wrap: pretty` 亦生效。
-Firefox 與 Safari 的支援狀態未實測,仍視為漸進增強。
+Firefox 153 實測(2026-08-19):`text-wrap: balance`、`text-autospace`、
+`line-break: strict` 支援且生效;`text-wrap: pretty`、`word-break: auto-phrase`、
+`text-spacing-trim` 不支援,退回預設斷行,無功能損失——漸進增強如設計運作。
+Safari/WebKit 未實測(測試環境無法安裝 WebKit 系統依賴),仍視為漸進增強。
 
 ---
 
@@ -127,7 +130,7 @@ v0.3.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一�
   對比度已實測涵蓋,但 `field` 的錯誤訊息經 `aria-describedby` 的實際播報行為
   仍待螢幕報讀器驗證
 - 未做動態內容的即時區域(live region)規範
-- CJK 排版屬性僅在 Chromium 實測;Firefox / Safari 未驗證
+- CJK 排版屬性已在 Chromium 與 Firefox 實測;Safari / WebKit 未驗證
 
 ---
 

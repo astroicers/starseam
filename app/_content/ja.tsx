@@ -19,6 +19,7 @@ export const ja: Dictionary = {
       { id: "decisions", label: "裁定" },
       { id: "install", label: "導入" },
     ],
+    commandK: { placeholder: "部品またはセクションを検索…", empty: "該当なし。", aria: "クイックジャンプ" },
     navAria: "セクション",
     mode: { auto: "自動", console: "夜勤", report: "日勤" },
     modeAria: "カラーモード",
@@ -164,7 +165,7 @@ export const ja: Dictionary = {
     },
     codeTag: {
       note: "行内コードとバージョン札。",
-      samples: ["theme", "v0.3.0", "MIT"],
+      samples: ["theme", "v0.4.0", "MIT"],
     },
     modeSwitch: {
       note: "三値:「自動」は選択を系に返す。頁にひとつの真実——この一台とヘッダーの一台が食い違うことはない。",

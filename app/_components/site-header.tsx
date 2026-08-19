@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mark } from "@/components/ui/mark";
 import { Seam } from "@/components/ui/seam";
 import { ModeSwitch } from "@/components/ui/mode-switch";
+import { CommandK } from "./command-k";
 import type { Dictionary } from "../_content/types";
 import type { Locale } from "./home";
 
@@ -20,7 +21,12 @@ const LOCALES: { locale: Locale; href: string; label: string }[] = [
 export function SiteHeader({
   dict,
   locale,
-}: Readonly<{ dict: Dictionary["header"]; locale: Locale }>) {
+  commandGroups,
+}: Readonly<{
+  dict: Dictionary["header"];
+  locale: Locale;
+  commandGroups: { label: string; items: { id: string; label: string }[] }[];
+}>) {
   const homeHref = locale === "zh-Hant" ? "/" : `/${locale === "ja" ? "ja" : "en"}`;
   return (
     <header>
@@ -51,6 +57,12 @@ export function SiteHeader({
         </nav>
 
         <div className="ml-auto flex flex-wrap items-center justify-end gap-x-4 gap-y-2">
+          <CommandK
+            groups={commandGroups}
+            placeholder={dict.commandK.placeholder}
+            empty={dict.commandK.empty}
+            ariaLabel={dict.commandK.aria}
+          />
           <nav
             aria-label={dict.langAria}
             className="flex items-stretch divide-x divide-[var(--ss-seam)]"

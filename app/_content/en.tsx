@@ -19,6 +19,7 @@ export const en: Dictionary = {
       { id: "decisions", label: "Decisions" },
       { id: "install", label: "Install" },
     ],
+    commandK: { placeholder: "Search components or sections…", empty: "Nothing matches.", aria: "Quick jump" },
     navAria: "Sections",
     mode: { auto: "AUTO", console: "CONSOLE", report: "REPORT" },
     modeAria: "Colour mode",
@@ -173,7 +174,7 @@ export const en: Dictionary = {
     },
     codeTag: {
       note: "Inline code and version tags.",
-      samples: ["theme", "v0.3.0", "MIT"],
+      samples: ["theme", "v0.4.0", "MIT"],
     },
     modeSwitch: {
       note: "Tri-state: auto hands the choice back to the system. One truth for the whole page — this instance and the one in the header can never disagree.",
