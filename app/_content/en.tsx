@@ -437,9 +437,9 @@ export const en: Dictionary = {
       note: "An instrument list: entries on one plate, each row cut from the next by a seam. The archetype is a duty logbook page — archives, recent, related reading.",
       label: "2026 · Duty log",
       rows: [
-        { label: "2026-06-30", text: "Listening run: Alpha Centauri" },
-        { label: "2026-06-22", text: "Plate log: sixty-two ken" },
-        { label: "2026-06-14", text: "First lesson of the dark forest: never reply" },
+        { label: "2026-06-30", text: "Listening run: Alpha Centauri", trailing: "SIGNAL" },
+        { label: "2026-06-22", text: "Plate log: sixty-two ken", trailing: "PLATE" },
+        { label: "2026-06-14", text: "First lesson of the dark forest: never reply", trailing: "DOCTRINE" },
       ],
     },
     glyph: {

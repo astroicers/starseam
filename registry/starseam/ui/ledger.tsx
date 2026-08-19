@@ -13,12 +13,18 @@ import { cn } from "@/lib/utils";
  */
 function Ledger({
   label,
+  meta,
   className,
   children,
   ...props
 }: React.ComponentProps<"div"> & {
   /** Instrument label shown in the head row, e.g. "2025 · 48". */
   label?: string;
+  /**
+   * Readout at the head row's far end — data, never a function
+   * (DECISIONS 11). The archetype is a year's month chart of stars.
+   */
+  meta?: React.ReactNode;
 }) {
   return (
     <div
@@ -29,13 +35,16 @@ function Ledger({
       )}
       {...props}
     >
-      {label ? (
-        <p
+      {label || meta ? (
+        <div
           data-slot="ledger-label"
-          className="border-b border-[var(--ss-seam)] px-6 py-3 font-[family-name:var(--ss-mono)] text-[10.5px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)]"
+          className="flex items-baseline justify-between gap-4 border-b border-[var(--ss-seam)] px-6 py-3"
         >
-          {label}
-        </p>
+          <p className="font-[family-name:var(--ss-mono)] text-[10.5px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)]">
+            {label}
+          </p>
+          {meta ? <span className="shrink-0 self-center">{meta}</span> : null}
+        </div>
       ) : null}
       <ol data-slot="ledger-rows">{children}</ol>
     </div>
@@ -44,6 +53,7 @@ function Ledger({
 
 function LedgerRow({
   label,
+  trailing,
   href,
   className,
   children,
@@ -51,6 +61,8 @@ function LedgerRow({
 }: React.ComponentProps<"li"> & {
   /** Row label, set in the mono instrument face — a date, a count, an id. */
   label?: string;
+  /** Instrument readout at the row's far end — a category, a count. */
+  trailing?: React.ReactNode;
   /** When set, the whole row is a link. */
   href?: string;
 }) {
@@ -63,13 +75,18 @@ function LedgerRow({
       ) : null}
       <span
         className={cn(
-          "text-[15px] text-[var(--ss-text-2)]",
+          "min-w-0 flex-1 text-[15px] text-[var(--ss-text-2)]",
           href &&
             "transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] group-hover:text-[var(--ss-text)]"
         )}
       >
         {children}
       </span>
+      {trailing ? (
+        <span className="shrink-0 font-[family-name:var(--ss-mono)] text-[10.5px] uppercase tracking-[var(--ss-track-label)] text-[var(--ss-text-3)] max-sm:hidden">
+          {trailing}
+        </span>
+      ) : null}
     </>
   );
   const rowClass = "flex items-baseline gap-5 px-6 py-4 max-sm:flex-col max-sm:gap-1";

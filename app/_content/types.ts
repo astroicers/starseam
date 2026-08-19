@@ -256,7 +256,7 @@ export interface Dictionary {
     ledger: {
       note: string;
       label: string;
-      rows: { label: string; text: string }[];
+      rows: { label: string; text: string; trailing: string }[];
     };
     glyph: { note: string };
   };

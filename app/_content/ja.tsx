@@ -426,9 +426,9 @@ export const ja: Dictionary = {
       note: "計器のリスト:同じ板の上の項目を、行ごとに矧ぎ目で裁ち分ける。原型は勤務日誌の一頁——アーカイブ、近況、関連読み物。",
       label: "2026 · 勤務記録",
       rows: [
-        { label: "2026-06-30", text: "聴取ラン:ケンタウルス座 α" },
-        { label: "2026-06-22", text: "板の記録:六十二間" },
-        { label: "2026-06-14", text: "暗い森の第一課:返信しない" },
+        { label: "2026-06-30", text: "聴取ラン:ケンタウルス座 α", trailing: "SIGNAL" },
+        { label: "2026-06-22", text: "板の記録:六十二間", trailing: "PLATE" },
+        { label: "2026-06-14", text: "暗い森の第一課:返信しない", trailing: "DOCTRINE" },
       ],
     },
     glyph: {

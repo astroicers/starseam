@@ -427,9 +427,9 @@ export const zh: Dictionary = {
       note: "儀表列表:同一片板上的條目,列與列之間以接縫裁開。原型是勤務日誌的一頁——歸檔、近期、延伸閱讀。",
       label: "2026 · 值勤紀錄",
       rows: [
-        { label: "2026-06-30", text: "監聽運行:半人馬座 α" },
-        { label: "2026-06-22", text: "板疊記錄:六十二間" },
-        { label: "2026-06-14", text: "暗林第一課:不回覆" },
+        { label: "2026-06-30", text: "監聽運行:半人馬座 α", trailing: "SIGNAL" },
+        { label: "2026-06-22", text: "板疊記錄:六十二間", trailing: "PLATE" },
+        { label: "2026-06-14", text: "暗林第一課:不回覆", trailing: "DOCTRINE" },
       ],
     },
     glyph: {
