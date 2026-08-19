@@ -265,6 +265,15 @@ body {
   to { transform: translateY(100%); }
 }
 
+/* Native horizontal scrollbar on a code plate — an instrument
+   channel with a steel thumb, matching scroll-area. Standard
+   properties only; a vertical bar never appears here, folding
+   is a clip, not a scroll. */
+[data-slot="code-block-viewport"] {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ss-rivet-quiet) transparent;
+}
+
 /* The scrim behind a floating layer. Not a blur — DECISIONS 04. */
 :root {
   --ss-scrim: rgb(0 0 0 / 0.62);

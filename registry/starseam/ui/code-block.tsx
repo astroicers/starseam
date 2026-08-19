@@ -7,6 +7,8 @@ import { CopyButton } from "@/registry/starseam/ui/copy-button";
 
 const LINE_HEIGHT = 1.75;
 const FONT_SIZE = 13;
+/** Must match the py-[10px] on both <pre> blocks — border-box eats it. */
+const PAD_Y = 10;
 
 export interface CodeBlockProps {
   /** The exact source. Copying always yields all of it, collapsed or not. */
@@ -40,6 +42,8 @@ export interface CodeBlockProps {
  * instrument label with a copy button; the body is ink on lacquer; long code
  * folds at a seam, and the expand row below it is marked by a rivet while
  * open — an open panel is a selection, never a severity (DECISIONS 10).
+ * The collapsed state clips; it never scrolls vertically (DECISIONS 08 —
+ * folding is stillness, the expand row is the only way down).
  */
 function CodeBlock({
   code,
@@ -61,7 +65,9 @@ function CodeBlock({
   const codeStyle: React.CSSProperties = {
     fontSize: `${FONT_SIZE}px`,
     lineHeight: LINE_HEIGHT,
-    maxHeight: clipped ? `${collapsedLines * FONT_SIZE * LINE_HEIGHT}px` : undefined,
+    maxHeight: clipped
+      ? `${collapsedLines * FONT_SIZE * LINE_HEIGHT + PAD_Y * 2}px`
+      : undefined,
   };
 
   return (
@@ -83,12 +89,16 @@ function CodeBlock({
         <CopyButton value={code} className="shrink-0" />
       </div>
       <Seam />
-      <div className={cn("flex", wrap ? "" : "overflow-x-auto")}>
+      {/* Long lines pan here; the fold is a clip, never a vertical scroll. */}
+      <div
+        data-slot="code-block-viewport"
+        className="flex overflow-x-auto overflow-y-hidden"
+      >
         {gutter ? (
           <>
             <pre
               aria-hidden="true"
-              className="select-none px-[10px] py-[10px] text-right font-[family-name:var(--ss-mono)] tabular-nums text-[var(--ss-text-3)]"
+              className="select-none overflow-hidden px-[10px] py-[10px] text-right font-[family-name:var(--ss-mono)] tabular-nums text-[var(--ss-text-3)]"
               style={codeStyle}
             >
               {(clipped ? lines.slice(0, collapsedLines) : lines)
@@ -100,7 +110,7 @@ function CodeBlock({
         ) : null}
         <pre
           className={cn(
-            "min-w-0 flex-1 overflow-hidden px-[12px] py-[10px] font-[family-name:var(--ss-mono)] text-[var(--ss-text-2)]",
+            "min-w-0 flex-1 px-[12px] py-[10px] font-[family-name:var(--ss-mono)] text-[var(--ss-text-2)]",
             wrap && "whitespace-pre-wrap break-all"
           )}
           style={codeStyle}
