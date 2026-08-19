@@ -11,7 +11,7 @@ import "../globals.css";
 export function LayoutShell({
   lang,
   children,
-}: Readonly<{ lang: "zh-Hant" | "en"; children: React.ReactNode }>) {
+}: Readonly<{ lang: "zh-Hant" | "en" | "ja"; children: React.ReactNode }>) {
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>

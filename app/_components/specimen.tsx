@@ -9,7 +9,8 @@ const REGISTRY_BASE = "https://starseam.astroicers.link/r";
  * Page-level scaffolding for the showcase, not a design-system component: it
  * arranges existing primitives around a rendered specimen. Each specimen sits
  * on its own flush plate; the install commands sit past a seam at the foot of
- * the plate — commands live on the boundary, like everything structural.
+ * the plate. Long commands wrap instead of scrolling — a scrollbar inside
+ * every plate would put a machine part on armour.
  */
 export function Specimen({
   names,
@@ -31,7 +32,7 @@ export function Specimen({
         ))}
       </div>
       {note ? (
-        <p className="mt-3 max-w-[560px] text-[13.5px] leading-[1.8] text-[var(--ss-text-2)]">
+        <p className="mt-3 max-w-[560px] text-[15px] leading-[1.85] text-[var(--ss-text-2)]">
           {note}
         </p>
       ) : null}
@@ -41,14 +42,11 @@ export function Specimen({
         {names.map((n) => {
           const cmd = `npx shadcn@latest add ${REGISTRY_BASE}/${n}.json`;
           return (
-            <div
-              key={n}
-              className="flex items-center justify-between gap-4 overflow-x-auto py-[7px]"
-            >
-              <code className="select-all whitespace-pre font-[family-name:var(--ss-mono)] text-[12px] leading-[1.7] text-[var(--ss-text-3)]">
+            <div key={n} className="flex items-start justify-between gap-4 py-[8px]">
+              <code className="min-w-0 select-all break-all font-[family-name:var(--ss-mono)] text-[13px] leading-[1.8] text-[var(--ss-text-2)]">
                 {cmd}
               </code>
-              <CopyButton value={cmd} />
+              <CopyButton value={cmd} className="mt-[3px] shrink-0" />
             </div>
           );
         })}

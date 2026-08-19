@@ -93,9 +93,10 @@ v0.3.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一�
   整個群組佔一個 Tab 停留點,方向鍵在自動/夜勤/日勤間移動、Enter/Space 選取;
   點擊已選中段不會清空選取;「自動」清除 `localStorage` 並回到跟隨系統偏好。
   選中標記為鉚釘 + 填色,不依賴顏色單獨傳達(裁決 10)。
-- **語言切換**(v0.3.0):純連結(`/` 繁中、`/en` 英文),各 locale 是獨立
-  root layout,`<html lang>` 各自正確;現行 locale 標 `aria-current="page"` +
-  鉚釘;切換為整頁載入,模式偏好經 localStorage 跨 locale 保持。
+- **語言切換**(v0.3.0):純連結(`/` 繁中、`/en` 英文、`/ja` 日文),各 locale 是
+  獨立 root layout,`<html lang>` 各自正確(zh-Hant / en / ja),hreflang×4;
+  現行 locale 標 `aria-current="page"` + 鉚釘;切換為整頁載入,
+  模式偏好經 localStorage 跨 locale 保持。日文頁面以 IBM Plex Sans JP 渲染(裁決 06)。
 - **v0.3.0 新增品項實測**(Chromium 151):
   - `plate-alert-dialog`:點擊外部**不**關閉(實測維持開啟)、Esc 視同取消、
     關閉後焦點回到觸發鈕

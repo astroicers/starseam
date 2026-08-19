@@ -31,7 +31,7 @@ export const sansTC = Noto_Sans_TC({
 
 export const sansJP = IBM_Plex_Sans_JP({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500"],
   variable: "--font-plex-jp",
 });
 

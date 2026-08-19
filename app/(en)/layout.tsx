@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: en.meta.description,
   alternates: {
     canonical: "/en",
-    languages: { "zh-Hant": "/", en: "/en", "x-default": "/" },
+    languages: { "zh-Hant": "/", en: "/en", ja: "/ja", "x-default": "/" },
   },
 };
 

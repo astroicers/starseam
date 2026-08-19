@@ -183,7 +183,7 @@ function themeHex(): { light: Record<string, string>; dark: Record<string, strin
   return { light: cssVars?.light ?? {}, dark: cssVars?.dark ?? {} };
 }
 
-export type Locale = "zh-Hant" | "en";
+export type Locale = "zh-Hant" | "en" | "ja";
 
 function SectionHeading({ head, id }: { head: SectionHead; id: string }) {
   return (
@@ -191,7 +191,7 @@ function SectionHeading({ head, id }: { head: SectionHead; id: string }) {
       <Label id={`${id}-label`}>{head.label}</Label>
       <h2 className="mt-3 text-[24px] tracking-[var(--ss-track-head)]">{head.title}</h2>
       {head.intro ? (
-        <p className="mt-3 max-w-[680px] text-[15.5px] leading-[1.9] text-[var(--ss-text-2)]">
+        <p className="mt-3 max-w-[680px] text-[16px] leading-[1.9] text-[var(--ss-text-2)]">
           {head.intro}
         </p>
       ) : null}
@@ -208,7 +208,7 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
       <h1 className="mt-12 font-[family-name:var(--ss-mono)] text-[clamp(30px,6vw,52px)] font-semibold leading-none tracking-[0.005em]">
         starseam
       </h1>
-      <p className="mt-4 max-w-[760px] text-[17px] leading-[1.9] text-[var(--ss-text-2)]">
+      <p className="mt-4 max-w-[760px] text-[18px] leading-[1.9] text-[var(--ss-text-2)]">
         {d.hero.tagline}
       </p>
 
@@ -226,7 +226,7 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
             <Plate key={r.en}>
               <Label>{r.en}</Label>
               <h3 className="mt-2 text-[16px] tracking-[0.06em]">{r.title}</h3>
-              <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ss-text-2)]">
+              <p className="mt-2 text-[14.5px] leading-[1.85] text-[var(--ss-text-2)]">
                 {r.body}
               </p>
             </Plate>
@@ -284,7 +284,7 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
             ).map(([elevation, caption]) => (
               <Plate key={elevation} elevation={elevation}>
                 <Label>{elevation.toUpperCase()}</Label>
-                <p className="mt-2 text-[13.5px] text-[var(--ss-text-2)]">{caption}</p>
+                <p className="mt-2 text-[14.5px] text-[var(--ss-text-2)]">{caption}</p>
               </Plate>
             ))}
           </div>
@@ -294,36 +294,36 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
           <Lames>
             <Plate elevation="float">
               <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-[16px] tracking-[0.08em]">{d.surfaces.lames.cyTitle}</h3>
+                <h3 lang="ja" className="text-[16px] tracking-[0.08em]">{d.surfaces.lames.cyTitle}</h3>
                 <StatusDot state="live" label={d.surfaces.lames.cyLive} />
               </div>
-              <p className="mt-2 text-[13.5px] text-[var(--ss-text-2)]">
+              <p className="mt-2 text-[14.5px] text-[var(--ss-text-2)]">
                 {d.surfaces.lames.cyBody}
               </p>
               <div className="mt-3 flex gap-6">
                 <span>
                   <Label>{d.surfaces.lames.assetsLabel}</Label>
                   <br />
-                  <Value className="text-[15px]">1,284</Value>
+                  <Value className="text-[15px]">62</Value>
                 </span>
                 <span>
                   <Label>{d.surfaces.lames.exposedLabel}</Label>
                   <br />
                   <Value state="warn" className="text-[15px]">
-                    17
+                    3
                   </Value>
                 </span>
               </div>
             </Plate>
             <Plate elevation="raised">
-              <h3 className="text-[16px] tracking-[0.08em]">{d.surfaces.lames.merakTitle}</h3>
-              <p className="mt-2 text-[13.5px] text-[var(--ss-text-2)]">
+              <h3 lang="ja" className="text-[16px] tracking-[0.08em]">{d.surfaces.lames.merakTitle}</h3>
+              <p className="mt-2 text-[14.5px] text-[var(--ss-text-2)]">
                 {d.surfaces.lames.merakBody}
               </p>
             </Plate>
             <Plate elevation="flush">
-              <h3 className="text-[16px] tracking-[0.08em]">{d.surfaces.lames.aspTitle}</h3>
-              <p className="mt-2 text-[13.5px] text-[var(--ss-text-2)]">
+              <h3 lang="ja" className="text-[16px] tracking-[0.08em]">{d.surfaces.lames.aspTitle}</h3>
+              <p className="mt-2 text-[14.5px] text-[var(--ss-text-2)]">
                 {d.surfaces.lames.aspBody}
               </p>
             </Plate>
@@ -449,13 +449,13 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
           <div className="flex items-center gap-3">
             <Avatar>
               <AvatarImage src="/mark-small-console.svg" alt="" />
-              <AvatarFallback>SS</AvatarFallback>
+              <AvatarFallback>樞</AvatarFallback>
             </Avatar>
             <Avatar>
-              <AvatarFallback>SOC</AvatarFallback>
+              <AvatarFallback>璇</AvatarFallback>
             </Avatar>
             <Avatar>
-              <AvatarFallback>AZ</AvatarFallback>
+              <AvatarFallback>璣</AvatarFallback>
             </Avatar>
           </div>
         </Specimen>
@@ -762,7 +762,7 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
             <HoverCardContent>
               <div className="flex items-center gap-3">
                 <Avatar>
-                  <AvatarFallback>AZ</AvatarFallback>
+                  <AvatarFallback>璣</AvatarFallback>
                 </Avatar>
                 <span className="font-[family-name:var(--ss-mono)] text-[13px] text-[var(--ss-text)]">
                   {d.overlays.hoverCard.title}

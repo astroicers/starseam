@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { LayoutShell } from "../_components/layout-shell";
-import { zh } from "../_content/zh";
+import { ja } from "../_content/ja";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://starseam.astroicers.link"),
-  title: zh.meta.title,
-  description: zh.meta.description,
+  title: ja.meta.title,
+  description: ja.meta.description,
   alternates: {
-    canonical: "/",
+    canonical: "/ja",
     languages: { "zh-Hant": "/", en: "/en", ja: "/ja", "x-default": "/" },
   },
 };
@@ -15,5 +15,5 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return <LayoutShell lang="zh-Hant">{children}</LayoutShell>;
+  return <LayoutShell lang="ja">{children}</LayoutShell>;
 }

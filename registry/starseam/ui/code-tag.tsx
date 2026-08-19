@@ -12,7 +12,7 @@ function CodeTag({ className, ...props }: React.ComponentProps<"code">) {
       className={cn(
         "inline-block border border-[var(--ss-seam)] rounded-[var(--ss-radius)]",
         "bg-[var(--ss-plate-1)] px-[7px] py-[2px]",
-        "font-[family-name:var(--ss-mono)] text-[11px] tracking-[0.04em]",
+        "font-[family-name:var(--ss-mono)] text-[12px] tracking-[0.04em]",
         "text-[var(--ss-text-2)]",
         className
       )}

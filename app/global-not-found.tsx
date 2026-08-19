@@ -42,6 +42,9 @@ export default function GlobalNotFound() {
             <Link href="/en" className="text-[var(--ss-text-3)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] hover:text-[var(--ss-text-2)]" lang="en">
               English
             </Link>
+            <Link href="/ja" className="text-[var(--ss-text-3)] transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] hover:text-[var(--ss-text-2)]" lang="ja">
+              日本語
+            </Link>
           </p>
         </main>
       </body>

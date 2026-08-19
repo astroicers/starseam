@@ -8,6 +8,7 @@ import type { Locale } from "./home";
 const LOCALES: { locale: Locale; href: string; label: string }[] = [
   { locale: "zh-Hant", href: "/", label: "繁" },
   { locale: "en", href: "/en", label: "EN" },
+  { locale: "ja", href: "/ja", label: "日" },
 ];
 
 /**
@@ -20,7 +21,7 @@ export function SiteHeader({
   dict,
   locale,
 }: Readonly<{ dict: Dictionary["header"]; locale: Locale }>) {
-  const homeHref = locale === "en" ? "/en" : "/";
+  const homeHref = locale === "zh-Hant" ? "/" : `/${locale === "ja" ? "ja" : "en"}`;
   return (
     <header>
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
