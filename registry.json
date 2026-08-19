@@ -43,8 +43,8 @@
           "ss-rivet": "#6b7280",
           "ss-rivet-quiet": "#a8adb6",
           "ss-text": "#16161a",
-          "ss-text-2": "#5e626b",
-          "ss-text-3": "#6b6b73",
+          "ss-text-2": "#52565f",
+          "ss-text-3": "#5e5e66",
           "ss-live": "#21509e",
           "ss-warn": "#84600f",
           "ss-crit": "#9c3b36"
@@ -59,8 +59,8 @@
           "ss-rivet": "#7e8794",
           "ss-rivet-quiet": "#4a4e56",
           "ss-text": "#e2e2e6",
-          "ss-text-2": "#9ba3ae",
-          "ss-text-3": "#83838d",
+          "ss-text-2": "#adb4bf",
+          "ss-text-3": "#94949f",
           "ss-live": "#4f86d6",
           "ss-warn": "#b9903f",
           "ss-crit": "#c7605b"
