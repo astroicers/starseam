@@ -1094,7 +1094,7 @@ export async function Home({ dict, locale }: { dict: Dictionary; locale: Locale 
         </Specimen>
 
         <Specimen names={["ledger"]} note={d.structure.ledger.note}>
-          <Ledger label={d.structure.ledger.label} className="max-w-[560px]">
+          <Ledger label={d.structure.ledger.label} elevation="float" className="max-w-[560px]">
             {d.structure.ledger.rows.map((r) => (
               <LedgerRow key={r.text} label={r.label} trailing={r.trailing} href="#ledger">
                 {r.text}

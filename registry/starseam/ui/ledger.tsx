@@ -1,6 +1,15 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
+type Elevation = "flush" | "raised" | "float";
+
+// Depth is fill, never shadow (DECISIONS 04) — the same three cuts as Plate.
+const ELEVATION: Record<Elevation, string> = {
+  flush: "bg-[var(--ss-plate-1)] border-[var(--ss-seam)]",
+  raised: "bg-[var(--ss-plate-2)] border-[var(--ss-seam)]",
+  float: "bg-[var(--ss-plate-3)] border-[var(--ss-seam-strong)]",
+};
+
 /**
  * An instrument list: dated or labelled entries riveted onto one plate,
  * each row cut from the next by a seam (DECISIONS 03 — the seams are real,
@@ -14,6 +23,7 @@ import { cn } from "@/lib/utils";
 function Ledger({
   label,
   meta,
+  elevation = "flush",
   className,
   children,
   ...props
@@ -25,12 +35,19 @@ function Ledger({
    * (DECISIONS 11). The archetype is a year's month chart of stars.
    */
   meta?: React.ReactNode;
+  /**
+   * How high the ledger sits. Depth is fill, never shadow (DECISIONS 04):
+   * float is the highest cut, for a card meant to read as lifted off the
+   * ground.
+   */
+  elevation?: Elevation;
 }) {
   return (
     <div
       data-slot="ledger"
       className={cn(
-        "rounded-[var(--ss-radius)] border border-[var(--ss-seam-strong)] bg-[var(--ss-plate-1)]",
+        "rounded-[var(--ss-radius)] border",
+        ELEVATION[elevation],
         className
       )}
       {...props}
