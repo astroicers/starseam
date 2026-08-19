@@ -37,8 +37,13 @@ export function CommandK({
         setOpen((v) => !v);
       }
     };
+    const onOpen = () => setOpen(true);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("ss-open-command", onOpen);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("ss-open-command", onOpen);
+    };
   }, []);
 
   function jump(id: string) {

@@ -297,7 +297,11 @@ export function Home({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   return (
     <main className="mx-auto max-w-[980px] px-6 py-10">
       <SiteHeader dict={d.header} locale={locale} commandGroups={commandGroups} />
-      <StarRail sections={d.header.nav} ariaLabel={d.header.navAria} />
+      <StarRail
+        sections={d.header.nav}
+        ariaLabel={d.header.navAria}
+        searchLabel={d.header.commandK.aria}
+      />
       <NavFab dict={d.header} locale={locale} />
 
       <h1 className="mt-12 font-[family-name:var(--ss-mono)] text-[clamp(30px,6vw,52px)] font-semibold leading-none tracking-[0.005em]">

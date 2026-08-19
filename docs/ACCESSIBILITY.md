@@ -100,10 +100,12 @@ v0.3.0 真實瀏覽器實測(Chromium 151,console 與 report 兩模式各跑一�
   獨立 root layout,`<html lang>` 各自正確(zh-Hant / en / ja),hreflang×4;
   現行 locale 標 `aria-current="page"` + 鉚釘;切換為整頁載入,
   模式偏好經 localStorage 跨 locale 保持。日文頁面以 IBM Plex Sans JP 渲染(裁決 06)。
-- **停靠導覽**(v0.3.0):桌面左緣 rail 為 `nav` + 每分區一個錨點連結
-  (`aria-label` 與 `title` 附分區名,所在分區標 `aria-current`);行動端右下板鈕
-  開啟 bottom sheet(繼承 sheet 的焦點陷阱與 Esc),點擊導覽項即關閉並跳轉。
-  rail 在 lg 以下隱藏、FAB 在 lg 以上隱藏,兩者互斥。
+- **停靠導覽**(v0.4.0):桌面左緣 rail 為 `nav`,每分區一個錨點連結,
+  所在分區標 `aria-current`;點擊區每列 ≥24×28px。hover 或鍵盤聚焦時
+  整條 rail 展開為帶分區名的板(瞬時狀態切換,無補間),腳端的搜尋星
+  開啟 Ctrl+K 指令面板——粗跳(分區)與細跳(單品)在同一個位置。
+  行動端右下板鈕開啟 bottom sheet(繼承 sheet 的焦點陷阱與 Esc),
+  點擊導覽項即關閉並跳轉。rail 在 lg 以下隱藏、FAB 在 lg 以上隱藏,兩者互斥。
 - **v0.3.0 新增品項實測**(Chromium 151):
   - `plate-alert-dialog`:點擊外部**不**關閉(實測維持開啟)、Esc 視同取消、
     關閉後焦點回到觸發鈕
