@@ -56,10 +56,10 @@ export function StarRail({
   if (!docked) return null;
 
   const rowClass =
-    "relative flex h-[28px] w-full min-w-[24px] items-center gap-[10px] outline-none " +
+    "relative flex h-[34px] w-full min-w-[28px] items-center gap-[12px] outline-none " +
     "focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-[var(--ss-live)]";
   const labelClass =
-    "whitespace-nowrap font-[family-name:var(--ss-mono)] text-[10.5px] uppercase tracking-[var(--ss-track-label)]";
+    "whitespace-nowrap font-[family-name:var(--ss-mono)] text-[12px] uppercase tracking-[var(--ss-track-label)]";
 
   return (
     <nav
@@ -76,26 +76,26 @@ export function StarRail({
       className={
         "fixed left-3 top-1/2 z-40 hidden -translate-y-1/2 lg:block " +
         (expanded
-          ? "rounded-[var(--ss-radius)] border border-[var(--ss-seam-strong)] bg-[var(--ss-plate-1)] px-[12px] py-[8px]"
-          : "w-[38px] px-[7px] py-[8px]")
+          ? "rounded-[var(--ss-radius)] border border-[var(--ss-seam-strong)] bg-[var(--ss-plate-1)] px-[14px] py-[10px]"
+          : "w-[46px] px-[9px] py-[10px]")
       }
     >
       <div className="relative">
         {/* The spine: a vertical seam the stars sit on. */}
         <span
           aria-hidden="true"
-          className="absolute inset-y-[4px] left-[5px] w-px bg-[var(--ss-seam)]"
+          className="absolute inset-y-[5px] left-[7px] w-px bg-[var(--ss-seam)]"
         />
         {sections.map((s) => {
           const lit = active === s.id;
           return (
             <a key={s.id} href={`#${s.id}`} aria-label={s.label} aria-current={lit ? "true" : undefined} className={rowClass}>
-              <span className="flex w-[11px] shrink-0 justify-center">
+              <span className="flex w-[15px] shrink-0 justify-center">
                 <span
                   className={`block rounded-full transition-colors duration-[var(--ss-dur)] ease-[var(--ss-ease)] ${
                     lit
-                      ? "size-[8px] bg-[var(--ss-rivet)]"
-                      : "size-[6px] bg-[var(--ss-rivet-quiet)] hover:bg-[var(--ss-rivet)]"
+                      ? "size-[10px] bg-[var(--ss-rivet)]"
+                      : "size-[8px] bg-[var(--ss-rivet-quiet)] hover:bg-[var(--ss-rivet)]"
                   }`}
                 />
               </span>
@@ -110,7 +110,7 @@ export function StarRail({
           );
         })}
       </div>
-      <div className="my-[6px]">
+      <div className="my-[8px]">
         <Seam />
       </div>
       {/* The search star: coarse jumps above the seam, fine jumps below it. */}
@@ -120,7 +120,7 @@ export function StarRail({
         onClick={() => window.dispatchEvent(new Event(OPEN_COMMAND_EVENT))}
         className={`${rowClass} w-full text-left`}
       >
-        <kbd className="flex size-[16px] shrink-0 items-center justify-center rounded-[var(--ss-radius)] border border-[var(--ss-seam-strong)] border-b-2 bg-[var(--ss-plate-2)] font-[family-name:var(--ss-mono)] text-[9px] text-[var(--ss-text-2)]">
+        <kbd className="flex size-[20px] shrink-0 items-center justify-center rounded-[var(--ss-radius)] border border-[var(--ss-seam-strong)] border-b-2 bg-[var(--ss-plate-2)] font-[family-name:var(--ss-mono)] text-[10.5px] text-[var(--ss-text-2)]">
           K
         </kbd>
         {expanded ? (
