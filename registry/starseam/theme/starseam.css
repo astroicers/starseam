@@ -312,3 +312,104 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   Prose — DECISIONS 12. A long text is a report.
+
+   Typography for article-length reading. Body sits one step back
+   at text-2; headings return to full ink. Sections are cut by
+   seams, links are riveted, inline code is a small plate.
+   ============================================================ */
+
+[data-slot="prose"] {
+  color: var(--ss-text-2);
+  font-size: 15px;
+  line-height: var(--ss-leading-body);
+  letter-spacing: var(--ss-track-body);
+}
+[data-slot="prose"] :is(h2, h3, h4) {
+  color: var(--ss-text);
+  font-weight: 600;
+  letter-spacing: var(--ss-track-head);
+  margin: 2.2em 0 0.8em;
+  scroll-margin-top: 2rem;
+}
+[data-slot="prose"] h2 {
+  font-size: 19px;
+  padding-bottom: 0.5em;
+  border-bottom: var(--ss-hairline) solid var(--ss-seam);
+}
+[data-slot="prose"] h3 {
+  font-size: 16.5px;
+}
+[data-slot="prose"] h4 {
+  font-size: 15px;
+}
+[data-slot="prose"] p {
+  margin: 0.9em 0;
+}
+/* A link is the seam between two documents, so it takes a rivet,
+   never lapis — a link is not a liveness signal (DECISIONS 02, 10). */
+[data-slot="prose"] a {
+  color: var(--ss-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--ss-rivet-quiet);
+  transition: text-decoration-color var(--ss-dur) var(--ss-ease);
+}
+[data-slot="prose"] a:hover {
+  text-decoration-color: var(--ss-rivet);
+}
+[data-slot="prose"] :is(ul, ol) {
+  margin: 0.9em 0;
+  padding-inline-start: 1.6em;
+}
+[data-slot="prose"] li {
+  margin: 0.3em 0;
+}
+[data-slot="prose"] code:not(pre code) {
+  font-family: var(--ss-mono);
+  font-size: 0.88em;
+  padding: 0.1em 0.4em;
+  background: var(--ss-plate-2);
+  border: var(--ss-hairline) solid var(--ss-seam);
+  border-radius: var(--ss-radius);
+}
+[data-slot="prose"] table {
+  width: 100%;
+  margin: 1.2em 0;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+[data-slot="prose"] th {
+  color: var(--ss-text);
+  text-align: left;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-bottom: var(--ss-hairline) solid var(--ss-seam-strong);
+}
+[data-slot="prose"] td {
+  padding: 6px 10px;
+  border-bottom: var(--ss-hairline) solid var(--ss-seam);
+}
+[data-slot="prose"] blockquote {
+  margin: 1.2em 0;
+  padding: 0.2em 1.2em;
+  border-left: 2px solid var(--ss-seam-strong);
+  color: var(--ss-text-3);
+}
+[data-slot="prose"] hr {
+  border: 0;
+  border-top: var(--ss-hairline) solid var(--ss-seam);
+  margin: 2em 0;
+}
+/* Images in prose are structural content (diagrams, captures) and
+   sit behind a hairline — decorative illustration stays out. */
+[data-slot="prose"] img {
+  max-width: 100%;
+  border: var(--ss-hairline) solid var(--ss-seam);
+  border-radius: var(--ss-radius);
+}
+[data-slot="prose"] [data-slot="code-block"] {
+  margin: 1.4em 0;
+}

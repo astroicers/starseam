@@ -1076,6 +1076,21 @@ export async function Home({ dict, locale }: { dict: Dictionary; locale: Locale 
           />
         </Specimen>
 
+        <Specimen names={["theme"]} note={d.structure.prose.note}>
+          <div data-slot="prose" className="max-w-[560px]">
+            <h3>{d.structure.prose.heading}</h3>
+            <p>{d.structure.prose.lead}</p>
+            <p>
+              {d.structure.prose.bodyA}
+              <code>--ss-plate-2</code>
+              {d.structure.prose.bodyB}
+              <a href="#theme">{d.structure.prose.linkText}</a>
+              {d.structure.prose.bodyC}
+            </p>
+            <blockquote>{d.structure.prose.quote}</blockquote>
+          </div>
+        </Specimen>
+
         <Specimen names={["plate-accordion"]} note={d.structure.accordion.note}>
           <PlateAccordion type="single" collapsible className="max-w-[560px]">
             {d.structure.accordion.items.map((item, i) => (

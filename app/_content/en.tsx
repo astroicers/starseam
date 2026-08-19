@@ -423,6 +423,16 @@ export const en: Dictionary = {
       expand: "Expand",
       collapse: "Collapse",
     },
+    prose: {
+      note: "Long-form typography — ruling 12. Body ink steps back, sections are cut by seams, links are riveted.",
+      heading: "A section at the seam",
+      lead: "Body text is the ground; headings and emphasis return to full ink. Sections are cut by a hairline seam, not by a display of font sizes.",
+      bodyA: "Inline code such as ",
+      bodyB: " is a small plate; ",
+      linkText: "a link is the seam between two documents",
+      bodyC: ", so it is marked with a rivet, never lapis.",
+      quote: "A long text is a report — even read on the night-shift console.",
+    },
     scrollArea: {
       note: "A viewport with an instrument scrollbar: hairline channel, steel thumb, no floating pill.",
       lines: [

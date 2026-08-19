@@ -243,6 +243,16 @@ export interface Dictionary {
     pagination: { note: string };
     scrollArea: { note: string; lines: string[] };
     codeBlock: { note: string; filename: string; expand: string; collapse: string };
+    prose: {
+      note: string;
+      heading: string;
+      lead: string;
+      bodyA: string;
+      bodyB: string;
+      linkText: string;
+      bodyC: string;
+      quote: string;
+    };
   };
   decisions: SectionHead & {
     rulings: [string, string, string][];
